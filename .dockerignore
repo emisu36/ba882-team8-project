@@ -1,0 +1,10 @@
+airflow.cfg
+airflow.db
+airflow_settings.yaml
+astro
+.env
+.git
+*.json
+logs/
+sa-key.json
+.venv
