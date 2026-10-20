@@ -5,3 +5,4 @@ sources:
     schema: raw
     tables:
       - name: market_snapshots
+      - name: game_scores
