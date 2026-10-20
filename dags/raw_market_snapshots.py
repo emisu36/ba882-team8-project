@@ -4,12 +4,12 @@ from airflow.decorators import dag, task
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
 from google.cloud import bigquery
-from include.ingest.markets import LEAGUES, fetch_kalshi, fetch_polymarket, fetch_kalshi_settled
-FETCH = {"kalshi": fetch_kalshi, "polymarket": fetch_polymarket, "kalshi_settled": fetch_kalshi_settled}
+from include.ingest.markets import LEAGUES, fetch_polymarket
+from include.ingest.odds_api import fetch_odds
 
 BUCKET = os.environ["GCS_BUCKET"]
 PROJECT = os.environ["GCP_PROJECT"]
-FETCH = {"kalshi": fetch_kalshi, "polymarket": fetch_polymarket}
+FETCH = {"oddsapi": fetch_odds, "polymarket": fetch_polymarket}
 SCHEMA = [bigquery.SchemaField("ingested_at", "TIMESTAMP"),
           bigquery.SchemaField("venue", "STRING"),
           bigquery.SchemaField("league", "STRING"),

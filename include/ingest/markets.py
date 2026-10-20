@@ -1,33 +1,13 @@
 import time
 from include.ingest.http import get as _get
 
-KALSHI = "https://api.elections.kalshi.com/trade-api/v2"
 POLY = "https://gamma-api.polymarket.com"
 
-# Kalshi series tickers are placeholders: confirm with the validation script
 LEAGUES = {
-    "nba": {"kalshi_series": ["KXNBAGAME"], "poly_tag": "nba"},
-    "nhl": {"kalshi_series": ["KXNHLGAME"], "poly_tag": "nhl"},
-    "nfl": {"kalshi_series": ["KXNFLGAME"], "poly_tag": "nfl"},
+    "nba": {"poly_tag": "nba"},
+    "nhl": {"poly_tag": "nhl"},
+    "nfl": {"poly_tag": "nfl"},
 }
-
-def fetch_kalshi(league, status="open", **extra):
-    rows = []
-    for series in LEAGUES[league]["kalshi_series"]:
-        cursor = None
-        while True:
-            p = {"series_ticker": series, "status": status, "limit": 1000, **extra}
-            if cursor:
-                p["cursor"] = cursor
-            d = _get(f"{KALSHI}/markets", p)
-            rows += d.get("markets", [])
-            cursor = d.get("cursor")
-            if not cursor:
-                break
-    return rows
-
-def fetch_kalshi_settled(league, days=3):
-    return fetch_kalshi(league, status="settled", min_close_ts=int(time.time()) - days * 86400)
 
 EVENT_FIELDS = ["id", "title", "slug", "startDate", "endDate"]
 
