@@ -28,8 +28,8 @@ def raw_game_scores():
             return 0
         nd = "\n".join(json.dumps({"ingested_at": ts.isoformat(), "league": league,
                                    "payload": json.dumps(r)}) for r in rows)
-        path = f"raw/scores/league={league}/dt={ts:%Y-%m-%d}/{ts:%H%M%S}.ndjson"
-        GCSHook().upload(BUCKET, path, data=nd, timeout=300, num_max_attempts=3)
+        path = f"raw/scores/league={league}/dt={ts:%Y-%m-%d}/{ts:%H%M%S}.ndjson.gz"
+        GCSHook().upload(BUCKET, path, data=nd, gzip=True, timeout=300, num_max_attempts=3)
         client = BigQueryHook(use_legacy_sql=False).get_client(project_id=PROJECT)
         cfg = bigquery.LoadJobConfig(source_format="NEWLINE_DELIMITED_JSON",
                                      write_disposition="WRITE_APPEND", schema=SCHEMA)
