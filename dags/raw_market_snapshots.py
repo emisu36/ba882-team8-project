@@ -32,8 +32,8 @@ def raw_market_snapshots():
             return 0
         nd = "\n".join(json.dumps({"ingested_at": ts.isoformat(), "venue": c["venue"],
                                    "league": c["league"], "payload": json.dumps(r)}) for r in rows)
-        path = f"raw/venue={c['venue']}/league={c['league']}/dt={ts:%Y-%m-%d}/{ts:%H%M%S}.ndjson"
-        GCSHook().upload(BUCKET, path, data=nd)
+        path = f"raw/venue={c['venue']}/league={c['league']}/dt={ts:%Y-%m-%d}/{ts:%H%M%S}.ndjson.gz"
+        GCSHook().upload(BUCKET, path, data=nd, gzip=True, timeout=300, num_max_attempts=3)
         client = BigQueryHook(use_legacy_sql=False).get_client(project_id=PROJECT)
         cfg = bigquery.LoadJobConfig(source_format="NEWLINE_DELIMITED_JSON",
                                      write_disposition="WRITE_APPEND", schema=SCHEMA)
