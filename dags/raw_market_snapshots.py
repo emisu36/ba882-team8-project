@@ -4,7 +4,8 @@ from airflow.decorators import dag, task
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
 from google.cloud import bigquery
-from include.ingest.markets import LEAGUES, fetch_kalshi, fetch_polymarket
+from include.ingest.markets import LEAGUES, fetch_kalshi, fetch_polymarket, fetch_kalshi_settled
+FETCH = {"kalshi": fetch_kalshi, "polymarket": fetch_polymarket, "kalshi_settled": fetch_kalshi_settled}
 
 BUCKET = os.environ["GCS_BUCKET"]
 PROJECT = os.environ["GCP_PROJECT"]

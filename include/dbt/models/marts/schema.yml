@@ -16,3 +16,11 @@ models:
     columns:
       - name: abs_gap
         data_tests: [not_null]
+  - name: dim_game
+    columns:
+      - name: matchup_code
+        data_tests: [not_null]
+  - name: fct_game_result
+    columns:
+      - name: winner_code
+        data_tests: [not_null]
