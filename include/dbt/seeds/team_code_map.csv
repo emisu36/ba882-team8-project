@@ -1,8 +1,101 @@
 league,venue,venue_code,team_code
-nfl,kalshi,JAC,JAX
 nfl,polymarket,LA,LAR
 nhl,polymarket,UTAH,UTA
 nhl,polymarket,MON,MTL
 nhl,polymarket,LAS,VGK
 nhl,polymarket,CAL,CGY
-nhl,kalshi,LA,LAK
+nfl,oddsapi,Arizona Cardinals,ARI
+nfl,oddsapi,Atlanta Falcons,ATL
+nfl,oddsapi,Baltimore Ravens,BAL
+nfl,oddsapi,Buffalo Bills,BUF
+nfl,oddsapi,Carolina Panthers,CAR
+nfl,oddsapi,Chicago Bears,CHI
+nfl,oddsapi,Cincinnati Bengals,CIN
+nfl,oddsapi,Cleveland Browns,CLE
+nfl,oddsapi,Dallas Cowboys,DAL
+nfl,oddsapi,Denver Broncos,DEN
+nfl,oddsapi,Detroit Lions,DET
+nfl,oddsapi,Green Bay Packers,GB
+nfl,oddsapi,Houston Texans,HOU
+nfl,oddsapi,Indianapolis Colts,IND
+nfl,oddsapi,Jacksonville Jaguars,JAX
+nfl,oddsapi,Kansas City Chiefs,KC
+nfl,oddsapi,Las Vegas Raiders,LV
+nfl,oddsapi,Los Angeles Chargers,LAC
+nfl,oddsapi,Los Angeles Rams,LAR
+nfl,oddsapi,Miami Dolphins,MIA
+nfl,oddsapi,Minnesota Vikings,MIN
+nfl,oddsapi,New England Patriots,NE
+nfl,oddsapi,New Orleans Saints,NO
+nfl,oddsapi,New York Giants,NYG
+nfl,oddsapi,New York Jets,NYJ
+nfl,oddsapi,Philadelphia Eagles,PHI
+nfl,oddsapi,Pittsburgh Steelers,PIT
+nfl,oddsapi,San Francisco 49ers,SF
+nfl,oddsapi,Seattle Seahawks,SEA
+nfl,oddsapi,Tampa Bay Buccaneers,TB
+nfl,oddsapi,Tennessee Titans,TEN
+nfl,oddsapi,Washington Commanders,WAS
+nba,oddsapi,Atlanta Hawks,ATL
+nba,oddsapi,Boston Celtics,BOS
+nba,oddsapi,Brooklyn Nets,BKN
+nba,oddsapi,Charlotte Hornets,CHA
+nba,oddsapi,Chicago Bulls,CHI
+nba,oddsapi,Cleveland Cavaliers,CLE
+nba,oddsapi,Dallas Mavericks,DAL
+nba,oddsapi,Denver Nuggets,DEN
+nba,oddsapi,Detroit Pistons,DET
+nba,oddsapi,Golden State Warriors,GSW
+nba,oddsapi,Houston Rockets,HOU
+nba,oddsapi,Indiana Pacers,IND
+nba,oddsapi,Los Angeles Clippers,LAC
+nba,oddsapi,Los Angeles Lakers,LAL
+nba,oddsapi,Memphis Grizzlies,MEM
+nba,oddsapi,Miami Heat,MIA
+nba,oddsapi,Milwaukee Bucks,MIL
+nba,oddsapi,Minnesota Timberwolves,MIN
+nba,oddsapi,New Orleans Pelicans,NOP
+nba,oddsapi,New York Knicks,NYK
+nba,oddsapi,Oklahoma City Thunder,OKC
+nba,oddsapi,Orlando Magic,ORL
+nba,oddsapi,Philadelphia 76ers,PHI
+nba,oddsapi,Phoenix Suns,PHX
+nba,oddsapi,Portland Trail Blazers,POR
+nba,oddsapi,Sacramento Kings,SAC
+nba,oddsapi,San Antonio Spurs,SAS
+nba,oddsapi,Toronto Raptors,TOR
+nba,oddsapi,Utah Jazz,UTA
+nba,oddsapi,Washington Wizards,WAS
+nhl,oddsapi,Anaheim Ducks,ANA
+nhl,oddsapi,Boston Bruins,BOS
+nhl,oddsapi,Buffalo Sabres,BUF
+nhl,oddsapi,Calgary Flames,CGY
+nhl,oddsapi,Carolina Hurricanes,CAR
+nhl,oddsapi,Chicago Blackhawks,CHI
+nhl,oddsapi,Colorado Avalanche,COL
+nhl,oddsapi,Columbus Blue Jackets,CBJ
+nhl,oddsapi,Dallas Stars,DAL
+nhl,oddsapi,Detroit Red Wings,DET
+nhl,oddsapi,Edmonton Oilers,EDM
+nhl,oddsapi,Florida Panthers,FLA
+nhl,oddsapi,Los Angeles Kings,LAK
+nhl,oddsapi,Minnesota Wild,MIN
+nhl,oddsapi,Montréal Canadiens,MTL
+nhl,oddsapi,Nashville Predators,NSH
+nhl,oddsapi,New Jersey Devils,NJ
+nhl,oddsapi,New York Islanders,NYI
+nhl,oddsapi,New York Rangers,NYR
+nhl,oddsapi,Ottawa Senators,OTT
+nhl,oddsapi,Philadelphia Flyers,PHI
+nhl,oddsapi,Pittsburgh Penguins,PIT
+nhl,oddsapi,San Jose Sharks,SJ
+nhl,oddsapi,Seattle Kraken,SEA
+nhl,oddsapi,St Louis Blues,STL
+nhl,oddsapi,Tampa Bay Lightning,TB
+nhl,oddsapi,Toronto Maple Leafs,TOR
+nhl,oddsapi,Utah Mammoth,UTA
+nhl,oddsapi,Utah Hockey Club,UTA
+nhl,oddsapi,Vancouver Canucks,VAN
+nhl,oddsapi,Vegas Golden Knights,VGK
+nhl,oddsapi,Washington Capitals,WSH
+nhl,oddsapi,Winnipeg Jets,WPG
