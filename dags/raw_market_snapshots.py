@@ -1,5 +1,6 @@
 import json, os
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+import pendulum
 from airflow.decorators import dag, task
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
@@ -15,8 +16,9 @@ SCHEMA = [bigquery.SchemaField("ingested_at", "TIMESTAMP"),
           bigquery.SchemaField("league", "STRING"),
           bigquery.SchemaField("payload", "STRING")]   # raw JSON; parsed in dbt
 
-@dag(schedule="0 16,21,23 * * *",   # noon, 5pm, 7pm ET (UTC cron)
-     start_date=datetime(2026, 10, 20), catchup=False, max_active_runs=1,
+@dag(schedule="0 12,17,19 * * *",   # noon, 5pm, 7pm ET (cron runs in start_date tz, DST-safe)
+     start_date=pendulum.datetime(2026, 10, 20, tz="America/New_York"), catchup=False, max_active_runs=1,
+     default_args={"retries": 2, "retry_delay": timedelta(minutes=5)},
      tags=["raw", "markets"])
 def raw_market_snapshots():
 
