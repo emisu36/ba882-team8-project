@@ -2,20 +2,21 @@
           unique_key=['league', 'game_date', 'matchup_code']) }}
 
 with r as (
-    select s.league, s.event_id, s.game_date, s.result, s.close_ts,
-           coalesce(m.team_code, s.team_code) as team_code
-    from {{ ref('stg_kalshi_results') }} s
-    left join {{ ref('team_code_map') }} m
-      on m.league = s.league and m.venue = 'kalshi' and m.venue_code = s.team_code
+    select s.*, h.team_code as home_code, a.team_code as away_code
+    from {{ ref('stg_oddsapi_results') }} s
+    left join {{ ref('team_code_map') }} h
+      on h.league = s.league and h.venue = 'oddsapi' and h.venue_code = s.home_team
+    left join {{ ref('team_code_map') }} a
+      on a.league = s.league and a.venue = 'oddsapi' and a.venue_code = s.away_team
 )
 select
     league,
     game_date,
-    concat(min(team_code), '-', max(team_code))   as matchup_code,
-    max(if(result = 'yes', team_code, null))      as winner_code,
-    max(close_ts)                                 as settled_ts,
-    event_id                                      as kalshi_event_id
+    concat(least(home_code, away_code), '-', greatest(home_code, away_code)) as matchup_code,
+    if(home_score > away_score, home_code, away_code)                        as winner_code,
+    last_update                                                              as settled_ts,
+    event_id                                                                 as oddsapi_event_id
 from r
-group by league, game_date, event_id
-having count(distinct team_code) = 2
-   and max(if(result = 'yes', team_code, null)) is not null
+where home_code is not null and away_code is not null
+  and home_score is not null and away_score is not null
+  and home_score != away_score          -- ties have no winner (as before)
