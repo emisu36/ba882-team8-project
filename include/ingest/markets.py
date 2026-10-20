@@ -51,6 +51,8 @@ def fetch_polymarket(league):
     for e in events:                         # one row per market, with slim event context
         ev = {k: e.get(k) for k in EVENT_FIELDS}
         for m in e.get("markets", []):
+            if m.get("sportsMarketType") != "moneyline":
+                continue
             m = {k: v for k, v in m.items() if k != "events"}
             m["_event"] = ev
             rows.append(m)

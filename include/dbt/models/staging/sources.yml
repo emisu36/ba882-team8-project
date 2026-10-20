@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: raw
+    database: "{{ env_var('GCP_PROJECT') }}"
+    schema: raw
+    tables:
+      - name: market_snapshots

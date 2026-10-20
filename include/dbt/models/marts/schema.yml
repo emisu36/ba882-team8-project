@@ -1,0 +1,18 @@
+version: 2
+models:
+  - name: fct_price_snapshot
+    columns:
+      - name: venue
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['kalshi', 'polymarket']
+      - name: market_id
+        data_tests: [not_null]
+      - name: team_code
+        data_tests: [not_null]
+  - name: fct_cross_venue_gap
+    columns:
+      - name: abs_gap
+        data_tests: [not_null]
