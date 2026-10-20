@@ -1,4 +1,5 @@
-import time, requests
+import time
+from include.ingest.http import get as _get
 
 KALSHI = "https://api.elections.kalshi.com/trade-api/v2"
 POLY = "https://gamma-api.polymarket.com"
@@ -9,16 +10,6 @@ LEAGUES = {
     "nhl": {"kalshi_series": ["KXNHLGAME"], "poly_tag": "nhl"},
     "nfl": {"kalshi_series": ["KXNFLGAME"], "poly_tag": "nfl"},
 }
-
-def _get(url, params):
-    for i in range(3):
-        r = requests.get(url, params=params, timeout=30)
-        if r.status_code == 429:
-            time.sleep(2 ** i)
-            continue
-        r.raise_for_status()
-        return r.json()
-    r.raise_for_status()
 
 def fetch_kalshi(league, status="open", **extra):
     rows = []
