@@ -4,7 +4,8 @@ from airflow.decorators import dag, task
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
 from google.cloud import bigquery
-from include.ingest.markets import LEAGUES, fetch_kalshi, fetch_polymarket
+from include.ingest.markets import LEAGUES, fetch_kalshi, fetch_polymarket, fetch_kalshi_settled
+FETCH = {"kalshi": fetch_kalshi, "polymarket": fetch_polymarket, "kalshi_settled": fetch_kalshi_settled}
 
 BUCKET = os.environ["GCS_BUCKET"]
 PROJECT = os.environ["GCP_PROJECT"]
@@ -32,8 +33,8 @@ def raw_market_snapshots():
             return 0
         nd = "\n".join(json.dumps({"ingested_at": ts.isoformat(), "venue": c["venue"],
                                    "league": c["league"], "payload": json.dumps(r)}) for r in rows)
-        path = f"raw/venue={c['venue']}/league={c['league']}/dt={ts:%Y-%m-%d}/{ts:%H%M%S}.ndjson"
-        GCSHook().upload(BUCKET, path, data=nd)
+        path = f"raw/venue={c['venue']}/league={c['league']}/dt={ts:%Y-%m-%d}/{ts:%H%M%S}.ndjson.gz"
+        GCSHook().upload(BUCKET, path, data=nd, gzip=True, timeout=300, num_max_attempts=3)
         client = BigQueryHook(use_legacy_sql=False).get_client(project_id=PROJECT)
         cfg = bigquery.LoadJobConfig(source_format="NEWLINE_DELIMITED_JSON",
                                      write_disposition="WRITE_APPEND", schema=SCHEMA)

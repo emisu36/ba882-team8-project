@@ -20,12 +20,12 @@ def _get(url, params):
         return r.json()
     r.raise_for_status()
 
-def fetch_kalshi(league):
+def fetch_kalshi(league, status="open", **extra):
     rows = []
     for series in LEAGUES[league]["kalshi_series"]:
         cursor = None
         while True:
-            p = {"series_ticker": series, "status": "open", "limit": 1000}
+            p = {"series_ticker": series, "status": status, "limit": 1000, **extra}
             if cursor:
                 p["cursor"] = cursor
             d = _get(f"{KALSHI}/markets", p)
@@ -35,13 +35,28 @@ def fetch_kalshi(league):
                 break
     return rows
 
+def fetch_kalshi_settled(league, days=3):
+    return fetch_kalshi(league, status="settled", min_close_ts=int(time.time()) - days * 86400)
+
+EVENT_FIELDS = ["id", "title", "slug", "startDate", "endDate"]
+
 def fetch_polymarket(league):
-    rows, offset = [], 0
+    events, offset = [], 0
     while True:
         d = _get(f"{POLY}/events", {"tag_slug": LEAGUES[league]["poly_tag"],
                  "active": "true", "closed": "false", "limit": 100, "offset": offset})
-        rows += d
+        events += d
         if len(d) < 100:
             break
         offset += 100
+        time.sleep(0.5)                      # be polite to the API
+    rows = []
+    for e in events:                         # one row per market, with slim event context
+        ev = {k: e.get(k) for k in EVENT_FIELDS}
+        for m in e.get("markets", []):
+            if m.get("sportsMarketType") != "moneyline":
+                continue
+            m = {k: v for k, v in m.items() if k != "events"}
+            m["_event"] = ev
+            rows.append(m)
     return rows
