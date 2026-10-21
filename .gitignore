@@ -30,3 +30,4 @@ webserver_config.py
 include/dbt/target/
 include/dbt/logs/
 include/dbt/dbt_packages/
+.venv-dbt
