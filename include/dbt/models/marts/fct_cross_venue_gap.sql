@@ -14,18 +14,18 @@ with latest as (
         partition by venue, league, game_date, matchup_code, team_code, snapshot_hour
         order by snapshot_ts desc) = 1
 ),
-k as (select * from latest where venue = 'kalshi'),
+o as (select * from latest where venue = 'oddsapi'),
 p as (select * from latest where venue = 'polymarket')
 
 select
     league, game_date, matchup_code, team_code, snapshot_hour,
-    k.mid               as kalshi_mid,
+    o.mid               as book_mid,
     p.mid               as poly_mid,
-    k.spread            as kalshi_spread,
+    o.spread            as book_spread,
     p.spread            as poly_spread,
-    k.mid - p.mid       as gap,
-    abs(k.mid - p.mid)  as abs_gap,
-    k.market_id         as kalshi_market_id,
+    o.mid - p.mid       as gap,             -- positive: books higher than Polymarket
+    abs(o.mid - p.mid)  as abs_gap,
+    o.market_id         as oddsapi_event_id,
     p.market_id         as poly_market_id
-from k
+from o
 join p using (league, game_date, matchup_code, team_code, snapshot_hour)

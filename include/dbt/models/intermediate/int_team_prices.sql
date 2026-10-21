@@ -1,5 +1,5 @@
 with unioned as (
-    select * from {{ ref('stg_kalshi_markets') }}
+    select * from {{ ref('int_oddsapi_consensus') }}
     union all
     select * from {{ ref('stg_polymarket_markets') }}
 ),
