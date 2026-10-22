@@ -13,6 +13,7 @@ jobs:
       GCS_BUCKET: ci
       ODDS_API_KEY: ci
       GOOGLE_APPLICATION_CREDENTIALS: ""
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: '{"conn_type":"google_cloud_platform","extra":{"keyfile_dict":"{\"type\":\"service_account\",\"project_id\":\"ci\"}","project":"ci"}}'
       DBT_SEND_ANONYMOUS_USAGE_STATS: "false"
       # dbt-bigquery and providers-google need incompatible google-cloud-storage, so two envs
       DBT_EXECUTABLE_PATH: ${{ github.workspace }}/.venv-dbt/bin/dbt

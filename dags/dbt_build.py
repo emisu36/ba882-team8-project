@@ -5,6 +5,7 @@ import pendulum
 from airflow.sdk import Asset
 from cosmos import DbtDag, ExecutionConfig, LoadMode, ProfileConfig, ProjectConfig, RenderConfig
 from cosmos.constants import InvocationMode
+from cosmos.profiles import GoogleCloudServiceAccountDictProfileMapping
 
 DBT_DIR = Path(__file__).parent.parent / "include" / "dbt"
 # dbt-bigquery pins google-cloud-storage<3.2, which clashes with providers-google in the
@@ -12,13 +13,23 @@ DBT_DIR = Path(__file__).parent.parent / "include" / "dbt"
 DBT_EXE = os.environ.get("DBT_EXECUTABLE_PATH",
                          f"{os.environ.get('AIRFLOW_HOME', '/usr/local/airflow')}/dbt_venv/bin/dbt")
 
+# dbt authenticates through the Airflow GCP connection (same one the DAGs use), so no key
+# file is needed inside the container. profiles.yml is only for running dbt by hand.
+PROFILE_CONFIG = ProfileConfig(
+    profile_name="team8_markets",
+    target_name="dev",
+    profile_mapping=GoogleCloudServiceAccountDictProfileMapping(
+        conn_id="google_cloud_default",
+        profile_args={"project": os.environ["GCP_PROJECT"], "dataset": "staging", "location": "US"},
+    ),
+)
+
 # Runs after every raw_market_snapshots run. Set Airflow Variable DBT_FULL_REFRESH=true to
 # rebuild incremental models and seeds from scratch (templated, so no DB call at parse time).
 dbt_build = DbtDag(
     dag_id="dbt_build",
     project_config=ProjectConfig(DBT_DIR),
-    profile_config=ProfileConfig(profile_name="team8_markets", target_name="dev",
-                                 profiles_yml_filepath=DBT_DIR / "profiles.yml"),
+    profile_config=PROFILE_CONFIG,
     execution_config=ExecutionConfig(dbt_executable_path=DBT_EXE,
                                      invocation_mode=InvocationMode.SUBPROCESS),
     render_config=RenderConfig(load_method=LoadMode.DBT_LS, dbt_executable_path=DBT_EXE,

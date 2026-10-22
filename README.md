@@ -13,7 +13,7 @@ flowchart LR
     A[The Odds API<br/>sportsbook odds] --> D
     B[Polymarket Gamma API<br/>moneyline markets] --> D
     C[The Odds API<br/>game scores] --> E
-    D[raw_market_snapshots DAG<br/>12:00 and 19:00 ET] --> F[(GCS<br/>raw NDJSON)]
+    D[raw_market_snapshots DAG<br/>12:00 and 18:00 ET] --> F[(GCS<br/>raw NDJSON)]
     E[raw_game_scores DAG<br/>06:00 ET] --> F
     F --> G[(BigQuery<br/>raw)]
     G --> H[dbt_build DAG<br/>staging, intermediate, marts]
@@ -79,7 +79,7 @@ The free tier allows **500 requests per month**. The current schedule uses about
 
 | DAG | Schedule (ET) | What it does |
 |---|---|---|
-| `raw_market_snapshots` | 12:00 and 19:00 daily | For each venue x league (6 tasks), fetches current prices, writes gzipped NDJSON to `gs://$GCS_BUCKET/raw/venue=.../league=.../dt=.../`, and appends to `raw.market_snapshots`. When done, emits the `raw_market_snapshots` Airflow Asset. |
+| `raw_market_snapshots` | 12:00 and 18:00 daily | For each venue x league (6 tasks), fetches current prices, writes gzipped NDJSON to `gs://$GCS_BUCKET/raw/venue=.../league=.../dt=.../`, and appends to `raw.market_snapshots`. When done, emits the `raw_market_snapshots` Airflow Asset. |
 | `raw_game_scores` | 06:00 daily | Fetches the previous day's scores for each league, writes to `gs://$GCS_BUCKET/raw/scores/...`, and appends to `raw.game_scores`. |
 | `dbt_build` | Triggered by the `raw_market_snapshots` Asset | Runs `dbt build` (seeds, models, tests) through Cosmos. |
 

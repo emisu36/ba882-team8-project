@@ -22,7 +22,7 @@ def raw_game_scores():
     @task
     def scores(league):
         ts = datetime.now(timezone.utc)
-        rows = fetch_scores(league, days_from=1)
+        rows = fetch_scores(league, days_from=3)
         if not rows:
             print(f"No games for {league}")
             return 0

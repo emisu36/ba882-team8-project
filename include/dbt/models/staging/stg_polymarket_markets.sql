@@ -3,6 +3,9 @@ with src as (
     from {{ source('raw', 'market_snapshots') }}
     where venue = 'polymarket'
       and json_value(payload, '$.sportsMarketType') = 'moneyline'
+      and regexp_contains(json_value(payload, '$.slug'), r'^[a-z]+-[a-z]+-[a-z]+-\d{4}-\d{2}-\d{2}$')   -- single games only
+      and safe.parse_date('%Y-%m-%d', regexp_extract(json_value(payload, '$.slug'), r'(\d{4}-\d{2}-\d{2})$'))
+          >= date(ingested_at, 'America/New_York')                                                    -- drop past games
 ),
 base as (
     select

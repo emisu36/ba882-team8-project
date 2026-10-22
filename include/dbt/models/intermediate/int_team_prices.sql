@@ -19,7 +19,7 @@ keyed as (
 select
     * except (matchup_code, team_a, team_b),
     concat(team_a, '-', team_b)          as matchup_code,   -- sorted, same on both venues
-    (bid + ask) / 2                      as mid,
+    if(venue = 'oddsapi', last_price, (bid + ask) / 2)   as mid,
     ask - bid                            as spread,
     timestamp_trunc(snapshot_ts, hour)   as snapshot_hour
 from keyed
