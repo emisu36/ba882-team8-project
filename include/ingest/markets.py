@@ -1,5 +1,7 @@
 import time
 from include.ingest.http import get as _get
+import re
+GAME_SLUG = re.compile(r"^[a-z]+-[a-z]+-[a-z]+-\d{4}-\d{2}-\d{2}$")
 
 POLY = "https://gamma-api.polymarket.com"
 
@@ -25,7 +27,7 @@ def fetch_polymarket(league):
     for e in events:                         # one row per market, with slim event context
         ev = {k: e.get(k) for k in EVENT_FIELDS}
         for m in e.get("markets", []):
-            if m.get("sportsMarketType") != "moneyline":
+            if m.get("sportsMarketType") != "moneyline" or not GAME_SLUG.match(m.get("slug") or ""):
                 continue
             m = {k: v for k, v in m.items() if k != "events"}
             m["_event"] = ev

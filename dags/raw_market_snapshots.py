@@ -19,7 +19,7 @@ SCHEMA = [bigquery.SchemaField("ingested_at", "TIMESTAMP"),
 
 # noon + 7pm ET (cron runs in start_date tz, DST-safe). Odds API budget: 2 runs x 3 leagues x 1 credit
 # = 6/day, plus raw_game_scores 3 x 2 = 6/day -> ~12/day, ~372 per 31-day month of the 500 free tier.
-@dag(schedule="0 12,19 * * *",
+@dag(schedule="0 12,18 * * *",
      start_date=pendulum.datetime(2026, 10, 20, tz="America/New_York"), catchup=False, max_active_runs=1,
      default_args={"retries": 2, "retry_delay": timedelta(minutes=5)},
      tags=["raw", "markets"])
