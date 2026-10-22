@@ -8,3 +8,4 @@ astro
 logs/
 sa-key.json
 .venv
+.venv-dbt

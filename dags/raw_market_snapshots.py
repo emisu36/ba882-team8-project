@@ -2,6 +2,7 @@ import json, os
 from datetime import datetime, timedelta, timezone
 import pendulum
 from airflow.decorators import dag, task
+from airflow.sdk import Asset
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
 from google.cloud import bigquery
@@ -47,6 +48,11 @@ def raw_market_snapshots():
         print(f"{c}: {len(rows)} rows -> {path}")
         return len(rows)
 
-    snapshot.expand(c=combos())
+    # one asset event per run (not one per mapped snapshot) -> one dbt_build run
+    @task(outlets=[Asset("raw_market_snapshots")])
+    def signal_done(counts):
+        print(f"Snapshot run done: {sum(counts)} rows total")
+
+    signal_done(snapshot.expand(c=combos()))
 
 raw_market_snapshots()

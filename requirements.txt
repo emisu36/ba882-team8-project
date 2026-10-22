@@ -1,2 +1,4 @@
 # Astro Runtime includes the following pre-installed providers packages: https://www.astronomer.io/docs/astro/runtime-image-architecture#provider-packages
 apache-airflow-providers-google
+# dbt itself is in a separate venv (see Dockerfile); Cosmos only needs to be importable by Airflow
+astronomer-cosmos==1.15.1
