@@ -5,4 +5,15 @@ sources:
     schema: raw
     tables:
       - name: market_snapshots
+        config:
+          loaded_at_field: ingested_at
+          freshness:
+            warn_after: {count: 20, period: hour}
+            error_after: {count: 36, period: hour}
       - name: game_scores
+        config:
+          loaded_at_field: ingested_at
+          freshness:
+            warn_after: {count: 26, period: hour}
+            error_after: {count: 50, period: hour}
+            

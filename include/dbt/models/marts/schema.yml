@@ -5,6 +5,10 @@ models:
       - name: team_code
         data_tests: [not_null]
   - name: fct_price_snapshot
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "concat(venue, '|', market_id, '|', team_code, '|', cast(snapshot_ts as string))"
     columns:
       - name: venue
         data_tests:
@@ -12,6 +16,11 @@ models:
           - accepted_values:
               arguments:
                 values: ['oddsapi', 'polymarket']
+      - name: league
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['nba', 'nhl', 'nfl']
       - name: market_id
         data_tests: [not_null]
       - name: team_code
@@ -25,10 +34,19 @@ models:
       - name: abs_gap
         data_tests: [not_null]
   - name: dim_game
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "concat(league, '|', cast(game_date as string), '|', matchup_code)"
     columns:
       - name: matchup_code
         data_tests: [not_null]
   - name: fct_game_result
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "concat(league, '|', cast(game_date as string), '|', matchup_code)"
     columns:
       - name: winner_code
         data_tests: [not_null]
+        
