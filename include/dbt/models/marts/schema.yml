@@ -49,4 +49,8 @@ models:
     columns:
       - name: winner_code
         data_tests: [not_null]
-        
+  - name: rpt_game_gap
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "concat(league, '|', cast(game_date as string), '|', matchup_code, '|', cast(snapshot_hour as string))"
