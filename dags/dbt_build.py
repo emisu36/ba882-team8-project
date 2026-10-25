@@ -7,7 +7,10 @@ from cosmos import DbtDag, ExecutionConfig, LoadMode, ProfileConfig, ProjectConf
 from cosmos.constants import InvocationMode
 from cosmos.profiles import GoogleCloudServiceAccountDictProfileMapping
 
-DBT_DIR = Path(__file__).parent.parent / "include" / "dbt"
+# Astro DAG bundles live outside AIRFLOW_HOME, so point at the image copy of include/
+DBT_DIR = Path(os.environ.get("AIRFLOW_HOME", "/usr/local/airflow")) / "include" / "dbt"
+if not (DBT_DIR / "dbt_project.yml").exists():  # CI / non-Astro fallback
+    DBT_DIR = Path(__file__).resolve().parent.parent / "include" / "dbt"
 # dbt-bigquery pins google-cloud-storage<3.2, which clashes with providers-google in the
 # runtime image, so dbt lives in its own venv (built in the Dockerfile; .venv-dbt locally / CI).
 DBT_EXE = os.environ.get("DBT_EXECUTABLE_PATH",
