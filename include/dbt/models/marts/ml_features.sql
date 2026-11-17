@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='ml') }}
+{{ config(materialized='table', schema='ai_datasets') }}
 
 -- One row per game x team x PRE-GAME snapshot, with the outcome once known.
 -- Grain: league, game_date, matchup_code, team_code, snapshot_hour
