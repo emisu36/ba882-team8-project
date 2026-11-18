@@ -39,7 +39,7 @@ jobs:
           .venv-dbt/bin/pip install dbt-bigquery==1.12.1
 
       - name: dbt parse
-        working-directory: include/dbt
+        working-directory: dags/dbt
         run: |
           "$DBT_EXECUTABLE_PATH" deps --profiles-dir .
           "$DBT_EXECUTABLE_PATH" parse --profiles-dir . --warn-error

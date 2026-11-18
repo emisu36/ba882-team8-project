@@ -102,9 +102,9 @@ Staging and intermediate models are views in the `staging` dataset. Marts are ta
 | mart | `fct_game_result` | Final result and winning team per game (incremental) |
 | seed | `team_code_map` | Maps each venue's team identifier to one canonical team code per league |
 
-Data tests live in `include/dbt/models/marts/schema.yml` (not-null, accepted values, uniqueness of the gap table).
+Data tests live in `dags/dbt/models/marts/schema.yml` (not-null, accepted values, uniqueness of the gap table).
 
-**Joining the venues:** games are matched on `league + game_date + matchup_code`. `matchup_code` is the two canonical team codes sorted alphabetically, so it is the same on both venues. If a team name changes or is missing from `team_code_map.csv`, the `not_null` test on `int_oddsapi_consensus.team_code` will fail. See `include/dbt/seeds/README.md` for the verification notes and the list of unverified NHL names.
+**Joining the venues:** games are matched on `league + game_date + matchup_code`. `matchup_code` is the two canonical team codes sorted alphabetically, so it is the same on both venues. If a team name changes or is missing from `team_code_map.csv`, the `not_null` test on `int_oddsapi_consensus.team_code` will fail. See `dags/dbt/seeds/README.md` for the verification notes and the list of unverified NHL names.
 
 ---
 
@@ -154,7 +154,7 @@ dbt-bigquery and the Airflow Google provider need different versions of `google-
 python -m venv .venv-dbt
 .venv-dbt/bin/pip install dbt-bigquery==1.12.1
 
-cd include/dbt
+cd dags/dbt
 ../../.venv-dbt/bin/dbt deps  --profiles-dir .
 ../../.venv-dbt/bin/dbt build --profiles-dir .
 ```
