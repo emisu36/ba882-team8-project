@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="poly_logit", model=get_where_subquery(ref('ml_training_set'))) }}
