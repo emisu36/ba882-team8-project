@@ -1,0 +1,1 @@
+{{ test_accepted_values(column_name="prob_bin", model=get_where_subquery(ref('rpt_calibration')), quote=false, values=[0,1,2,3,4,5,6,7,8,9]) }}

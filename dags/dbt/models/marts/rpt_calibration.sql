@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='ai_datasets') }}
+{{ config(materialized='table') }}
 
 -- Option A: is each venue well calibrated?
 -- For finished games (home side, last pre-game price), group predictions into 10 bins

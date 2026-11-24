@@ -1,0 +1,1 @@
+{{ test_unique(column_name="concat(venue, '|', cast(prob_bin as string))", model=get_where_subquery(ref('rpt_calibration'))) }}

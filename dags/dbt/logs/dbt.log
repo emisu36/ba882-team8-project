@@ -2006,3 +2006,240 @@ where team_won is null
 Finished 'build' successfully for target 'dev' [31.3s]
 Processed: 4 models | 11 tests
 Summary: 15 total | 15 success
+==================== 2026-11-24T18:07:18.702943Z | 01a20ebd-9f6f-75f3-b97e-bd5ce2a8fa23 ====================
+18:07:18.772980 [info ]: dbt-fusion 2.0.0-preview.218
+18:07:18.979542 [info ]: Started loading project
+18:07:19.350744 [info ]: Loading profiles.yml
+18:07:19.815016 [debug]:    Started loading packages
+18:07:20.077760 [debug]:     Loaded [  0.26s] packages
+18:07:20.103734 [info ]: Finished loading project [  1.12s]
+18:07:20.185414 [info ]: Started parsing
+18:07:20.480599 [debug]: Finished parsing models/marts/schema.yml [  0.02s]
+18:07:20.484543 [debug]: Finished parsing models/staging/sources.yml [  0.00s]
+18:07:20.610088 [debug]: Finished parsing models/intermediate/int_oddsapi_consensus.sql [  0.01s]
+18:07:20.611757 [debug]: Finished parsing models/intermediate/int_team_prices.sql [  0.00s]
+18:07:20.614952 [debug]: Finished parsing models/marts/dim_game.sql [  0.00s]
+18:07:20.616291 [debug]: Finished parsing models/marts/fct_cross_venue_gap.sql [  0.00s]
+18:07:20.618210 [debug]: Finished parsing models/marts/fct_game_result.sql [  0.00s]
+18:07:20.620694 [debug]: Finished parsing models/marts/fct_price_snapshot.sql [  0.00s]
+18:07:20.622536 [debug]: Finished parsing models/marts/ml_features.sql [  0.00s]
+18:07:20.624578 [debug]: Finished parsing models/marts/ml_training_set.sql [  0.00s]
+18:07:20.625637 [debug]: Finished parsing models/marts/rpt_calibration.sql [  0.00s]
+18:07:20.627370 [debug]: Finished parsing models/marts/rpt_game_gap.sql [  0.00s]
+18:07:20.652575 [debug]: Finished parsing models/staging/stg_oddsapi_book_prices.sql [  0.03s]
+18:07:20.654874 [debug]: Finished parsing models/staging/stg_oddsapi_results.sql [  0.00s]
+18:07:20.656838 [debug]: Finished parsing models/staging/stg_polymarket_markets.sql [  0.00s]
+18:07:20.712972 [debug]: Finished parsing tests/assert_devig_sums_to_one.sql [  0.00s]
+18:07:20.715018 [debug]: Finished parsing tests/assert_gap_between_minus1_and_1.sql [  0.00s]
+18:07:20.716741 [debug]: Finished parsing tests/assert_mid_between_0_and_1.sql [  0.00s]
+18:07:20.718316 [debug]: Finished parsing tests/assert_ml_features_pregame.sql [  0.00s]
+18:07:20.720237 [debug]: Finished parsing tests/assert_spread_non_negative.sql [  0.00s]
+18:07:20.721089 [debug]: Finished parsing target/generic_tests/unique_dim_game_2d94ab75c68306ce63aaea034443ff31.sql [  0.00s]
+18:07:20.721911 [debug]: Finished parsing target/generic_tests/not_null_dim_game_matchup_code.sql [  0.00s]
+18:07:20.722716 [debug]: Finished parsing target/generic_tests/unique_fct_cross_venue_gap_f53a42105e43bb7f1feb367fd1c66b33.sql [  0.00s]
+18:07:20.723388 [debug]: Finished parsing target/generic_tests/not_null_fct_cross_venue_gap_abs_gap.sql [  0.00s]
+18:07:20.724045 [debug]: Finished parsing target/generic_tests/unique_fct_game_result_74d6ffd4e509c543626dfe7b0cb4e9cf.sql [  0.00s]
+18:07:20.724788 [debug]: Finished parsing target/generic_tests/not_null_fct_game_result_winner_code.sql [  0.00s]
+18:07:20.725407 [debug]: Finished parsing target/generic_tests/unique_fct_price_snapshot_4d8d508cab337122bdfb0f535cfd517b.sql [  0.00s]
+18:07:20.726038 [debug]: Finished parsing target/generic_tests/accepted_values_fct_price_snapshot_league__nba__nhl__nfl.sql [  0.00s]
+18:07:20.726709 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_market_id.sql [  0.00s]
+18:07:20.727336 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_team_code.sql [  0.00s]
+18:07:20.728024 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_venue.sql [  0.00s]
+18:07:20.728676 [debug]: Finished parsing target/generic_tests/accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.sql [  0.00s]
+18:07:20.729315 [debug]: Finished parsing target/generic_tests/not_null_int_oddsapi_consensus_team_code.sql [  0.00s]
+18:07:20.729959 [debug]: Finished parsing target/generic_tests/unique_ml_features_cef42b4adadd2a3049438f0843da88cd.sql [  0.00s]
+18:07:20.730650 [debug]: Finished parsing target/generic_tests/not_null_ml_features_commence_ts.sql [  0.00s]
+18:07:20.731285 [debug]: Finished parsing target/generic_tests/not_null_ml_features_is_home.sql [  0.00s]
+18:07:20.731973 [debug]: Finished parsing target/generic_tests/accepted_values_ml_features_team_won__False__0__1.sql [  0.00s]
+18:07:20.732626 [debug]: Finished parsing target/generic_tests/unique_ml_training_set_bb8685bfdd0203c5657b080b12dbcdcf.sql [  0.00s]
+18:07:20.733228 [debug]: Finished parsing target/generic_tests/not_null_ml_training_set_book_logit.sql [  0.00s]
+18:07:20.733866 [debug]: Finished parsing target/generic_tests/not_null_ml_training_set_poly_logit.sql [  0.00s]
+18:07:20.734516 [debug]: Finished parsing target/generic_tests/not_null_ml_training_set_team_won.sql [  0.00s]
+18:07:20.735124 [debug]: Finished parsing target/generic_tests/unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_.sql [  0.00s]
+18:07:20.735816 [debug]: Finished parsing target/generic_tests/accepted_values_rpt_calibratio_1d9c4994308b4d03592f49f7d3555ec1.sql [  0.00s]
+18:07:20.736407 [debug]: Finished parsing target/generic_tests/unique_rpt_game_gap_452023530841ad18138711dada116711.sql [  0.00s]
+18:07:20.887035 [info ]: Finished parsing [  0.70s]
+18:07:21.152930 [info ]: Started scheduling
+18:07:21.185111 [info ]: Finished scheduling [  0.03s]
+18:07:21.232790 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "ai_datasets", table: "ml_training_set" }) and interval: None
+18:07:21.436727 [info ]: Started building task graph
+18:07:21.474112 [info ]: Finished building task graph [  0.04s]
+18:07:21.871427 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.17
+18:07:23.331886 [info ]: Started rendering (3 nodes)
+18:07:23.332865 [info ]: Started model mart.rpt_calibration
+18:07:23.332903 [debug]: Started rendering model mart.rpt_calibration
+18:07:23.342032 [debug]: Compiled SQL for node model.team8_markets.rpt_calibration at target/compiled/team8_markets/models/marts/rpt_calibration.sql
+18:07:23.342355 [debug]: Finished rendering [  0.01s] model mart.rpt_calibration [success]
+18:07:23.344379 [info ]: Started analyzing (3 nodes)
+18:07:23.344464 [debug]: Started analyzing model mart.rpt_calibration
+18:07:23.632445 [debug]: Finished analyzing [  0.29s] model mart.rpt_calibration [success]
+18:07:23.632645 [info ]: Started running (3 nodes)
+18:07:23.632755 [info ]: Started running model mart.rpt_calibration
+18:07:25.135192 [debug]: Writing runtime sql for node "model.team8_markets.rpt_calibration"
+18:07:25.165722 [debug]: create_debug_span(...).entered() took 43.6µs
+18:07:28.263842 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 3.097700978s
+18:07:28.263918 [debug]: reader.schema() took 1.009µs
+18:07:33.034217 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 7.868415567s
+18:07:33.034383 [debug]: concat_batches + normalize_result_column_names took 46.152µs
+18:07:33.034418 [debug]: record_current_span_status_from_attrs took 18.252µs
+18:07:33.034463 [debug]: Query executed on node model.team8_markets.rpt_calibration:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.team8_markets.rpt_calibration", "profile_name": "team8_markets", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `ba882-team8-fall26`.`mart`.`rpt_calibration`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+-- Option A: is each venue well calibrated?
+-- For finished games (home side, last pre-game price), group predictions into 10 bins
+-- and compare the average predicted probability with how often the team actually won.
+-- A perfectly calibrated venue has avg_predicted = actual_win_rate in every bin.
+with preds as (
+    select league, game_date, 'Sportsbooks' as venue, book_mid as p, team_won
+    from `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+    union all
+    select league, game_date, 'Polymarket', poly_mid, team_won
+    from `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+)
+select
+    venue,
+    least(cast(floor(p * 10) as int64), 9)      as prob_bin,          -- 0 = 0-10%, ..., 9 = 90-100%
+    count(*)                                    as n_games,
+    avg(p)                                      as avg_predicted,
+    avg(team_won)                               as actual_win_rate,
+    avg(team_won) - avg(p)                      as calibration_error,  -- + = venue too pessimistic
+    avg(pow(p - team_won, 2))                   as brier_in_bin
+from preds
+group by 1, 2
+    );
+  
+18:07:33.034638 [debug]: drop(query_span_guard) (span exit/export) took 193.498µs
+18:07:33.094060 [info ]: Finished running [  9.46s] model mart.rpt_calibration [success]
+18:07:33.094261 [info ]:  Succeeded [  9.76s] model mart.rpt_calibration (table)
+18:07:33.094450 [info ]: Started test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_
+18:07:33.094495 [debug]: Started rendering test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_
+18:07:33.094592 [info ]: Started test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9
+18:07:33.094621 [debug]: Started rendering test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9
+18:07:33.113186 [debug]: Compiled SQL for node test.team8_markets.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9.f8fab60d9c at target/compiled/team8_markets/target/generic_tests/accepted_values_rpt_calibratio_1d9c4994308b4d03592f49f7d3555ec1.sql
+18:07:33.113195 [debug]: Compiled SQL for node test.team8_markets.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_.5dcb466a41 at target/compiled/team8_markets/target/generic_tests/unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_.sql
+18:07:33.113547 [debug]: Finished rendering [  0.02s] test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9 [success]
+18:07:33.113696 [debug]: Started analyzing test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9
+18:07:33.113762 [debug]: Finished rendering [  0.02s] test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_ [success]
+18:07:33.113830 [info ]: Finished rendering [  9.78s] (3 nodes, 0 skipped, 0 errors)
+18:07:33.114015 [debug]: Started analyzing test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_
+18:07:33.117461 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9 [success]
+18:07:33.117681 [info ]: Started running test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9
+18:07:33.119355 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_ [success]
+18:07:33.119457 [info ]: Finished analyzing [  9.78s] (3 nodes, 0 skipped, 0 errors)
+18:07:33.119667 [info ]: Started running test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_
+18:07:33.145955 [debug]: Writing runtime sql for node "test.team8_markets.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_.5dcb466a41"
+18:07:33.146383 [debug]: Writing runtime sql for node "test.team8_markets.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9.f8fab60d9c"
+18:07:33.147679 [debug]: create_debug_span(...).entered() took 27.563µs
+18:07:33.153118 [debug]: create_debug_span(...).entered() took 60.538µs
+18:07:34.771869 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.623967974s
+18:07:34.771929 [debug]: reader.schema() took 1.12µs
+18:07:34.818204 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.664789123s
+18:07:34.818361 [debug]: reader.schema() took 1.058µs
+18:07:35.315274 [debug]: batch-consume loop (for res in reader) took 496.877354ms
+18:07:35.317482 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.164308548s
+18:07:35.317562 [debug]: concat_batches + normalize_result_column_names took 19.962µs
+18:07:35.317597 [debug]: record_current_span_status_from_attrs took 8.361µs
+18:07:35.317636 [debug]: Query executed on node test.team8_markets.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9.f8fab60d9c:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9.f8fab60d9c", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        prob_bin as value_field,
+        count(*) as n_records
+
+    from `ba882-team8-fall26`.`mart`.`rpt_calibration`
+    group by prob_bin
+
+)
+
+select *
+from all_values
+where value_field not in (
+    0,1,2,3,4,5,6,7,8,9
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+18:07:35.317730 [debug]: drop(query_span_guard) (span exit/export) took 106.614µs
+18:07:35.320836 [info ]: Finished running [  2.20s] test dbt_test__audit.accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9 [pass]
+18:07:35.320932 [info ]:     Passed [  2.22s] test  accepted_values_rpt_calibration_prob_bin__False__0__1__2__3__4__5__6__7__8__9
+18:07:35.500417 [debug]: batch-consume loop (for res in reader) took 728.454163ms
+18:07:35.503326 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.355518342s
+18:07:35.503382 [debug]: concat_batches + normalize_result_column_names took 9.613µs
+18:07:35.503399 [debug]: record_current_span_status_from_attrs took 7.772µs
+18:07:35.503424 [debug]: Query executed on node test.team8_markets.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_.5dcb466a41:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_.5dcb466a41", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(venue, '|', cast(prob_bin as string)) as unique_field
+  from `ba882-team8-fall26`.`mart`.`rpt_calibration`
+  where concat(venue, '|', cast(prob_bin as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+18:07:35.503488 [debug]: drop(query_span_guard) (span exit/export) took 78.376µs
+18:07:35.504100 [info ]: Finished running [  2.38s] test dbt_test__audit.unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_ [pass]
+18:07:35.504242 [info ]: Finished running [ 11.87s] (3 nodes, 0 skipped, 0 errors)
+18:07:35.504330 [info ]:     Passed [  2.41s] test  unique_rpt_calibration_concat_venue_cast_prob_bin_as_string_
+18:07:35.828832 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [17.1s]
+Processed: 1 model | 2 tests
+Summary: 3 total | 3 success
