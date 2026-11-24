@@ -92,10 +92,10 @@ def make_dag(dag_id, spec):
             return {"dataset_id": dataset_id}
 
         @task
-        def train(config: dict, ds: dict, **ctx):
+        def train(config: dict, dset: dict, **ctx):
             run_id = f"run-{M['model_id']}-{uuid.uuid4().hex[:8]}"
             resp = requests.post(ML_TRAIN_URL, timeout=300, json={
-                "run_id": run_id, "model_id": M["model_id"], "dataset_id": ds["dataset_id"],
+                "run_id": run_id, "model_id": M["model_id"], "dataset_id": dset["dataset_id"],
                 "gcp_project": PROJECT, "problem": spec["problem"], "test_days": 14, **config})
             if resp.status_code != 200:
                 raise RuntimeError(f"training failed: {resp.status_code} {resp.text}")
@@ -105,13 +105,13 @@ def make_dag(dag_id, spec):
             return out
 
         @task
-        def register_run(res: dict, ds: dict):
+        def register_run(res: dict, dset: dict):
             params = q(json.dumps(res["config"]))
             metrics = q(json.dumps(res["metrics"]))
             bq().query(f"""
                 INSERT INTO `{PROJECT}.mlops.training_run`
                   (run_id, model_id, dataset_id, airflow_run_id, params, metrics, artifact, status, created_at)
-                VALUES ('{res["run_id"]}', '{M["model_id"]}', '{ds["dataset_id"]}', '{res["airflow_run_id"]}',
+                VALUES ('{res["run_id"]}', '{M["model_id"]}', '{dset["dataset_id"]}', '{res["airflow_run_id"]}',
                         PARSE_JSON('{params}'), PARSE_JSON('{metrics}'), '{res["artifact"]}',
                         'completed', CURRENT_TIMESTAMP())
             """).result()
@@ -146,10 +146,10 @@ def make_dag(dag_id, spec):
             return mv
 
         m = register_model()
-        ds = create_dataset()
-        m >> ds
-        results = train.partial(ds=ds).expand(config=spec["configs"])
-        register_run.partial(ds=ds).expand(res=results)
+        dset = create_dataset()
+        m >> dset
+        results = train.partial(dset=dset).expand(config=spec["configs"])
+        register_run.partial(dset=dset).expand(res=results)
         promote(pick_production(results))
 
     return _dag()
