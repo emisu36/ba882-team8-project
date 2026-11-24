@@ -29,6 +29,8 @@ select
     timestamp_diff(p.commence_ts, p.snapshot_hour, minute) / 60.0           as hours_to_start,
     extract(dayofweek from p.commence_ts at time zone 'America/New_York')   as start_dow,
     p.book_mid, p.poly_mid, p.gap, p.abs_gap,
+    ln(least(greatest(p.book_mid, 0.001), 0.999) / (1 - least(greatest(p.book_mid, 0.001), 0.999))) as book_logit,
+    ln(least(greatest(p.poly_mid, 0.001), 0.999) / (1 - least(greatest(p.poly_mid, 0.001), 0.999))) as poly_logit,
     p.book_spread                                                           as book_range,
     p.poly_spread,
     p.abs_gap > p.poly_spread / 2                                           as outside_spread,
