@@ -16,7 +16,9 @@ from datetime import timedelta
 import pendulum
 import requests
 from airflow.providers.google.cloud.hooks.bigquery import BigQueryHook
-from airflow.sdk import dag, task
+from airflow.sdk import BaseHook, dag, task
+from google.auth.transport.requests import Request
+from google.oauth2 import service_account
 
 PROJECT = os.environ.get("GCP_PROJECT", "")
 ML_TRAIN_URL = os.environ.get("ML_TRAIN_URL", "")
@@ -25,6 +27,16 @@ ML_TRAIN_URL = os.environ.get("ML_TRAIN_URL", "")
 def bq():
     # same auth path as the team's other DAGs (Airflow connection), not default credentials
     return BigQueryHook(use_legacy_sql=False).get_client(project_id=PROJECT)
+
+
+def _id_token(url):
+    """Signed ID token from the Airflow GCP connection; the function only allows our service account."""
+    extra = BaseHook.get_connection("google_cloud_default").extra_dejson
+    info = extra.get("keyfile_dict") or extra.get("extra__google_cloud_platform__keyfile_dict")
+    info = json.loads(info) if isinstance(info, str) else info
+    creds = service_account.IDTokenCredentials.from_service_account_info(info, target_audience=url)
+    creds.refresh(Request())
+    return creds.token
 
 
 def q(s):
@@ -57,7 +69,7 @@ SPECS = {
 def make_dag(dag_id, spec):
     M = spec["model"]
 
-    @dag(dag_id=dag_id, schedule="0 8 * * 1,4",   # Mon + Thu 8am ET (~50 new games per retrain)
+    @dag(dag_id=dag_id, schedule="40 11 * * 1,4",   # Mon + Thu 11:40am ET (inside the Astronomer wake window) (~50 new games per retrain)
          start_date=pendulum.datetime(2026, 11, 1, tz="America/New_York"),
          catchup=False, max_active_runs=1,
          default_args={"retries": 2, "retry_delay": timedelta(minutes=5)},
@@ -94,7 +106,9 @@ def make_dag(dag_id, spec):
         @task
         def train(config: dict, dset: dict, **ctx):
             run_id = f"run-{M['model_id']}-{uuid.uuid4().hex[:8]}"
-            resp = requests.post(ML_TRAIN_URL, timeout=300, json={
+            resp = requests.post(ML_TRAIN_URL, timeout=300,
+                                 headers={"Authorization": f"Bearer {_id_token(ML_TRAIN_URL)}"},
+                                 json={
                 "run_id": run_id, "model_id": M["model_id"], "dataset_id": dset["dataset_id"],
                 "gcp_project": PROJECT, "problem": spec["problem"], "test_days": 14, **config})
             if resp.status_code != 200:
@@ -124,7 +138,7 @@ def make_dag(dag_id, spec):
                         if r["config"]["feature_set"] == spec["production_feature_set"]
                         and r["config"]["algorithm"] == "logistic_regression")
             for r in results:   # how each other model compares with the champion this run
-                if r is prod:
+                if r["run_id"] == prod["run_id"]:
                     continue
                 diff = r["metrics"]["log_loss"] - prod["metrics"]["log_loss"]
                 print(f'{r["config"]["feature_set"]} / {r["config"]["algorithm"]}: '
