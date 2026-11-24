@@ -60,7 +60,7 @@ def make_dag(dag_id, spec):
     @dag(dag_id=dag_id, schedule="0 8 * * 1,4",   # Mon + Thu 8am ET (~50 new games per retrain)
          start_date=pendulum.datetime(2026, 11, 1, tz="America/New_York"),
          catchup=False, max_active_runs=1,
-         default_args={"retries": 1, "retry_delay": timedelta(minutes=5)},
+         default_args={"retries": 2, "retry_delay": timedelta(minutes=5)},
          tags=["mlops", "model", "phase2"])
     def _dag():
 
