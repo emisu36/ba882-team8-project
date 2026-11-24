@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="team_won", model=get_where_subquery(ref('ml_training_set'))) }}

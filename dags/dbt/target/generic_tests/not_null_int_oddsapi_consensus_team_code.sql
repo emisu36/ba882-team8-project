@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="team_code", model=get_where_subquery(ref('int_oddsapi_consensus'))) }}

@@ -29,3 +29,4 @@ select
     p.market_id         as poly_market_id
 from o
 join p using (league, game_date, matchup_code, team_code, snapshot_hour)
+where o.mid is not null and p.mid is not null   -- no quote on one venue = no comparable price

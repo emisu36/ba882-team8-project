@@ -1,0 +1,19 @@
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select venue, market_id, team_code, snapshot_ts, bid, ask, mid
+from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+where mid < 0 or mid > 1
+   or bid < 0 or bid > 1
+   or ask < 0 or ask > 1
+  
+  
+      
+    ) dbt_internal_test

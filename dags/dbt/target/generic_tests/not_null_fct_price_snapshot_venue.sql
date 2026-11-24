@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="venue", model=get_where_subquery(ref('fct_price_snapshot'))) }}

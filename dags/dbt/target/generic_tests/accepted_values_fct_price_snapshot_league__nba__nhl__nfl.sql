@@ -1,0 +1,1 @@
+{{ test_accepted_values(column_name="league", model=get_where_subquery(ref('fct_price_snapshot')), values=["nba","nhl","nfl"]) }}

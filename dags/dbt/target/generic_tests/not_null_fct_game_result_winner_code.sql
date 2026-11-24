@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="winner_code", model=get_where_subquery(ref('fct_game_result'))) }}
