@@ -1,0 +1,1 @@
+{{ test_unique(column_name="concat(league, '|', cast(game_date as string), '|', matchup_code, '|', cast(snapshot_hour as string))", model=get_where_subquery(ref('rpt_game_gap'))) }}

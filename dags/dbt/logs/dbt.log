@@ -1,0 +1,2008 @@
+==================== 2026-11-24T13:40:27.463002Z | 01a20dc9-5092-7c90-adb5-c641fc7be117 ====================
+13:40:27.542408 [info ]: dbt-fusion 2.0.0-preview.218
+13:40:27.717666 [info ]: Started loading project
+13:40:28.159980 [info ]: Loading profiles.yml
+13:40:28.655190 [debug]:    Started loading packages
+13:40:28.988828 [debug]:     Loaded [  0.33s] packages
+13:40:29.020853 [info ]: Finished loading project [  1.30s]
+13:40:29.212354 [info ]: Started parsing
+13:40:29.650516 [debug]: Finished parsing models/marts/schema.yml [  0.02s]
+13:40:29.653681 [debug]: Finished parsing models/staging/sources.yml [  0.00s]
+13:40:29.773928 [debug]: Finished parsing models/intermediate/int_oddsapi_consensus.sql [  0.01s]
+13:40:29.775756 [debug]: Finished parsing models/intermediate/int_team_prices.sql [  0.00s]
+13:40:29.779747 [debug]: Finished parsing models/marts/dim_game.sql [  0.00s]
+13:40:29.782456 [debug]: Finished parsing models/marts/fct_cross_venue_gap.sql [  0.00s]
+13:40:29.784697 [debug]: Finished parsing models/marts/fct_game_result.sql [  0.00s]
+13:40:29.787038 [debug]: Finished parsing models/marts/fct_price_snapshot.sql [  0.00s]
+13:40:29.789601 [debug]: Finished parsing models/marts/ml_features.sql [  0.00s]
+13:40:29.791479 [debug]: Finished parsing models/marts/ml_training_set.sql [  0.00s]
+13:40:29.793409 [debug]: Finished parsing models/marts/rpt_game_gap.sql [  0.00s]
+13:40:29.812579 [debug]: Finished parsing models/staging/stg_oddsapi_book_prices.sql [  0.02s]
+13:40:29.814477 [debug]: Finished parsing models/staging/stg_oddsapi_results.sql [  0.00s]
+13:40:29.816273 [debug]: Finished parsing models/staging/stg_polymarket_markets.sql [  0.00s]
+13:40:29.875558 [debug]: Finished parsing tests/assert_devig_sums_to_one.sql [  0.00s]
+13:40:29.878169 [debug]: Finished parsing tests/assert_gap_between_minus1_and_1.sql [  0.00s]
+13:40:29.880236 [debug]: Finished parsing tests/assert_mid_between_0_and_1.sql [  0.00s]
+13:40:29.881721 [debug]: Finished parsing tests/assert_ml_features_pregame.sql [  0.00s]
+13:40:29.883263 [debug]: Finished parsing tests/assert_spread_non_negative.sql [  0.00s]
+13:40:29.884120 [debug]: Finished parsing target/generic_tests/unique_dim_game_2d94ab75c68306ce63aaea034443ff31.sql [  0.00s]
+13:40:29.884904 [debug]: Finished parsing target/generic_tests/not_null_dim_game_matchup_code.sql [  0.00s]
+13:40:29.885617 [debug]: Finished parsing target/generic_tests/unique_fct_cross_venue_gap_f53a42105e43bb7f1feb367fd1c66b33.sql [  0.00s]
+13:40:29.886228 [debug]: Finished parsing target/generic_tests/not_null_fct_cross_venue_gap_abs_gap.sql [  0.00s]
+13:40:29.886812 [debug]: Finished parsing target/generic_tests/unique_fct_game_result_74d6ffd4e509c543626dfe7b0cb4e9cf.sql [  0.00s]
+13:40:29.887439 [debug]: Finished parsing target/generic_tests/not_null_fct_game_result_winner_code.sql [  0.00s]
+13:40:29.887967 [debug]: Finished parsing target/generic_tests/unique_fct_price_snapshot_4d8d508cab337122bdfb0f535cfd517b.sql [  0.00s]
+13:40:29.888562 [debug]: Finished parsing target/generic_tests/accepted_values_fct_price_snapshot_league__nba__nhl__nfl.sql [  0.00s]
+13:40:29.889386 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_market_id.sql [  0.00s]
+13:40:29.890007 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_team_code.sql [  0.00s]
+13:40:29.890652 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_venue.sql [  0.00s]
+13:40:29.891464 [debug]: Finished parsing target/generic_tests/accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.sql [  0.00s]
+13:40:29.892080 [debug]: Finished parsing target/generic_tests/not_null_int_oddsapi_consensus_team_code.sql [  0.00s]
+13:40:29.892650 [debug]: Finished parsing target/generic_tests/unique_ml_features_cef42b4adadd2a3049438f0843da88cd.sql [  0.00s]
+13:40:29.893211 [debug]: Finished parsing target/generic_tests/not_null_ml_features_commence_ts.sql [  0.00s]
+13:40:29.893803 [debug]: Finished parsing target/generic_tests/not_null_ml_features_is_home.sql [  0.00s]
+13:40:29.894460 [debug]: Finished parsing target/generic_tests/accepted_values_ml_features_team_won__False__0__1.sql [  0.00s]
+13:40:29.894994 [debug]: Finished parsing target/generic_tests/unique_ml_training_set_bb8685bfdd0203c5657b080b12dbcdcf.sql [  0.00s]
+13:40:29.895573 [debug]: Finished parsing target/generic_tests/not_null_ml_training_set_team_won.sql [  0.00s]
+13:40:29.896101 [debug]: Finished parsing target/generic_tests/unique_rpt_game_gap_452023530841ad18138711dada116711.sql [  0.00s]
+13:40:30.028788 [info ]: Finished parsing [  0.82s]
+13:40:30.061080 [info ]: Started scheduling
+13:40:30.210849 [info ]: Finished scheduling [  0.15s]
+13:40:30.387031 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "mart", table: "fct_cross_venue_gap" }) and interval: None
+13:40:30.388154 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "ai_datasets", table: "ml_features" }) and interval: None
+13:40:30.388198 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "staging", table: "int_oddsapi_consensus" }) and interval: None
+13:40:30.388208 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "ai_datasets", table: "ml_training_set" }) and interval: None
+13:40:30.388215 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "mart", table: "fct_price_snapshot" }) and interval: None
+13:40:30.388223 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "mart", table: "fct_game_result" }) and interval: None
+13:40:30.694089 [info ]: Started building task graph
+13:40:30.744448 [info ]: Finished building task graph [  0.05s]
+13:40:31.283962 [info ]: Started rendering (22 nodes)
+13:40:31.286210 [info ]: Started test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.286260 [debug]: Started rendering test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.286393 [info ]: Started test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.286429 [debug]: Started rendering test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.286472 [info ]: Started test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_
+13:40:31.286490 [debug]: Started rendering test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_
+13:40:31.286521 [info ]: Started test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.286539 [debug]: Started rendering test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.286558 [info ]: Started test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.286569 [debug]: Started rendering test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.286592 [info ]: Started test dbt_test__audit.not_null_ml_training_set_team_won
+13:40:31.286607 [debug]: Started rendering test dbt_test__audit.not_null_ml_training_set_team_won
+13:40:31.286623 [info ]: Started test dbt_test__audit.not_null_ml_features_is_home
+13:40:31.286639 [debug]: Started rendering test dbt_test__audit.not_null_ml_features_is_home
+13:40:31.286659 [info ]: Started test dbt_test__audit.not_null_ml_features_commence_ts
+13:40:31.286674 [debug]: Started rendering test dbt_test__audit.not_null_ml_features_commence_ts
+13:40:31.286692 [info ]: Started test dbt_test__audit.not_null_int_oddsapi_consensus_team_code
+13:40:31.286707 [debug]: Started rendering test dbt_test__audit.not_null_int_oddsapi_consensus_team_code
+13:40:31.286723 [info ]: Started test dbt_test__audit.not_null_fct_price_snapshot_venue
+13:40:31.286734 [debug]: Started rendering test dbt_test__audit.not_null_fct_price_snapshot_venue
+13:40:31.286752 [info ]: Started test dbt_test__audit.not_null_fct_price_snapshot_team_code
+13:40:31.286767 [debug]: Started rendering test dbt_test__audit.not_null_fct_price_snapshot_team_code
+13:40:31.286790 [info ]: Started test dbt_test__audit.not_null_fct_price_snapshot_market_id
+13:40:31.286802 [debug]: Started rendering test dbt_test__audit.not_null_fct_price_snapshot_market_id
+13:40:31.286820 [info ]: Started test dbt_test__audit.not_null_fct_game_result_winner_code
+13:40:31.286835 [debug]: Started rendering test dbt_test__audit.not_null_fct_game_result_winner_code
+13:40:31.286863 [info ]: Started test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:40:31.286873 [debug]: Started rendering test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:40:31.286911 [info ]: Started test dbt_test__audit.assert_spread_non_negative
+13:40:31.286931 [debug]: Started rendering test dbt_test__audit.assert_spread_non_negative
+13:40:31.286962 [info ]: Started test dbt_test__audit.assert_ml_features_pregame
+13:40:31.286977 [debug]: Started rendering test dbt_test__audit.assert_ml_features_pregame
+13:40:31.286998 [info ]: Started test dbt_test__audit.assert_mid_between_0_and_1
+13:40:31.287004 [debug]: Started rendering test dbt_test__audit.assert_mid_between_0_and_1
+13:40:31.287037 [info ]: Started test dbt_test__audit.assert_gap_between_minus1_and_1
+13:40:31.287047 [debug]: Started rendering test dbt_test__audit.assert_gap_between_minus1_and_1
+13:40:31.287069 [info ]: Started test dbt_test__audit.assert_devig_sums_to_one
+13:40:31.287084 [debug]: Started rendering test dbt_test__audit.assert_devig_sums_to_one
+13:40:31.287105 [info ]: Started test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:40:31.287114 [debug]: Started rendering test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:40:31.287139 [info ]: Started test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket
+13:40:31.287153 [debug]: Started rendering test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket
+13:40:31.287171 [info ]: Started test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl
+13:40:31.287185 [debug]: Started rendering test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl
+13:40:31.296666 [debug]: Compiled SQL for node test.team8_markets.assert_gap_between_minus1_and_1 at target/compiled/team8_markets/tests/assert_gap_between_minus1_and_1.sql
+13:40:31.296746 [debug]: Compiled SQL for node test.team8_markets.assert_devig_sums_to_one at target/compiled/team8_markets/tests/assert_devig_sums_to_one.sql
+13:40:31.297001 [debug]: Compiled SQL for node test.team8_markets.assert_spread_non_negative at target/compiled/team8_markets/tests/assert_spread_non_negative.sql
+13:40:31.296939 [debug]: Finished rendering [  0.01s] test dbt_test__audit.assert_gap_between_minus1_and_1 [success]
+13:40:31.297035 [debug]: Compiled SQL for node test.team8_markets.assert_ml_features_pregame at target/compiled/team8_markets/tests/assert_ml_features_pregame.sql
+13:40:31.297285 [debug]: Compiled SQL for node test.team8_markets.assert_mid_between_0_and_1 at target/compiled/team8_markets/tests/assert_mid_between_0_and_1.sql
+13:40:31.298513 [info ]: Started analyzing (22 nodes)
+13:40:31.298602 [debug]: Started analyzing test dbt_test__audit.assert_gap_between_minus1_and_1
+13:40:31.298664 [debug]: Finished rendering [  0.01s] test dbt_test__audit.assert_devig_sums_to_one [success]
+13:40:31.299256 [debug]: Started analyzing test dbt_test__audit.assert_devig_sums_to_one
+13:40:31.299325 [debug]: Finished rendering [  0.01s] test dbt_test__audit.assert_spread_non_negative [success]
+13:40:31.299748 [debug]: Started analyzing test dbt_test__audit.assert_spread_non_negative
+13:40:31.299787 [debug]: Finished rendering [  0.01s] test dbt_test__audit.assert_ml_features_pregame [success]
+13:40:31.300004 [debug]: Started analyzing test dbt_test__audit.assert_ml_features_pregame
+13:40:31.300045 [debug]: Finished rendering [  0.01s] test dbt_test__audit.assert_mid_between_0_and_1 [success]
+13:40:31.300272 [debug]: Started analyzing test dbt_test__audit.assert_mid_between_0_and_1
+13:40:31.403183 [debug]: Compiled SQL for node test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a at target/compiled/team8_markets/target/generic_tests/unique_ml_training_set_bb8685bfdd0203c5657b080b12dbcdcf.sql
+13:40:31.403197 [debug]: Compiled SQL for node test.team8_markets.not_null_int_oddsapi_consensus_team_code.301949537f at target/compiled/team8_markets/target/generic_tests/not_null_int_oddsapi_consensus_team_code.sql
+13:40:31.403197 [debug]: Compiled SQL for node test.team8_markets.not_null_fct_game_result_winner_code.4d72ef1eec at target/compiled/team8_markets/target/generic_tests/not_null_fct_game_result_winner_code.sql
+13:40:31.403183 [debug]: Compiled SQL for node test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d at target/compiled/team8_markets/target/generic_tests/not_null_ml_features_commence_ts.sql
+13:40:31.403501 [debug]: Compiled SQL for node test.team8_markets.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_.5f28e4fb69 at target/compiled/team8_markets/target/generic_tests/unique_fct_price_snapshot_4d8d508cab337122bdfb0f535cfd517b.sql
+13:40:31.403532 [debug]: Compiled SQL for node test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369 at target/compiled/team8_markets/target/generic_tests/unique_fct_cross_venue_gap_f53a42105e43bb7f1feb367fd1c66b33.sql
+13:40:31.403546 [debug]: Compiled SQL for node test.team8_markets.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_.33397e566e at target/compiled/team8_markets/target/generic_tests/unique_fct_game_result_74d6ffd4e509c543626dfe7b0cb4e9cf.sql
+13:40:31.403590 [debug]: Compiled SQL for node test.team8_markets.not_null_fct_price_snapshot_venue.c573bcfeab at target/compiled/team8_markets/target/generic_tests/not_null_fct_price_snapshot_venue.sql
+13:40:31.403933 [debug]: Compiled SQL for node test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7 at target/compiled/team8_markets/target/generic_tests/unique_ml_features_cef42b4adadd2a3049438f0843da88cd.sql
+13:40:31.403941 [debug]: Compiled SQL for node test.team8_markets.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.a80361311c at target/compiled/team8_markets/target/generic_tests/accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.sql
+13:40:31.404004 [debug]: Compiled SQL for node test.team8_markets.not_null_fct_price_snapshot_market_id.157f6222c8 at target/compiled/team8_markets/target/generic_tests/not_null_fct_price_snapshot_market_id.sql
+13:40:31.404049 [debug]: Compiled SQL for node test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f at target/compiled/team8_markets/target/generic_tests/not_null_ml_training_set_team_won.sql
+13:40:31.404319 [debug]: Compiled SQL for node test.team8_markets.not_null_fct_price_snapshot_team_code.8e751a917b at target/compiled/team8_markets/target/generic_tests/not_null_fct_price_snapshot_team_code.sql
+13:40:31.404383 [debug]: Compiled SQL for node test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2 at target/compiled/team8_markets/target/generic_tests/not_null_fct_cross_venue_gap_abs_gap.sql
+13:40:31.404450 [debug]: Compiled SQL for node test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a at target/compiled/team8_markets/target/generic_tests/accepted_values_ml_features_team_won__False__0__1.sql
+13:40:31.404450 [debug]: Compiled SQL for node test.team8_markets.accepted_values_fct_price_snapshot_league__nba__nhl__nfl.55183d24e8 at target/compiled/team8_markets/target/generic_tests/accepted_values_fct_price_snapshot_league__nba__nhl__nfl.sql
+13:40:31.404727 [debug]: Compiled SQL for node test.team8_markets.not_null_ml_features_is_home.d903cf872a at target/compiled/team8_markets/target/generic_tests/not_null_ml_features_is_home.sql
+13:40:31.704366 [debug]: Finished analyzing [  0.41s] test dbt_test__audit.assert_gap_between_minus1_and_1 [success]
+13:40:31.704555 [info ]: Started running (22 nodes)
+13:40:31.704630 [info ]: Started running test dbt_test__audit.assert_gap_between_minus1_and_1
+13:40:31.704746 [debug]: Finished analyzing [  0.41s] test dbt_test__audit.assert_devig_sums_to_one [success]
+13:40:31.704905 [info ]: Started running test dbt_test__audit.assert_devig_sums_to_one
+13:40:31.704956 [debug]: Finished rendering [  0.42s] test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_ [success]
+13:40:31.705066 [debug]: Started analyzing test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.705094 [debug]: Finished analyzing [  0.41s] test dbt_test__audit.assert_spread_non_negative [success]
+13:40:31.705183 [info ]: Started running test dbt_test__audit.assert_spread_non_negative
+13:40:31.705207 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_ml_training_set_team_won [success]
+13:40:31.705250 [debug]: Started analyzing test dbt_test__audit.not_null_ml_training_set_team_won
+13:40:31.705272 [debug]: Finished rendering [  0.42s] test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_ [success]
+13:40:31.705332 [debug]: Started analyzing test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_
+13:40:31.705357 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_ml_features_commence_ts [success]
+13:40:31.705397 [debug]: Started analyzing test dbt_test__audit.not_null_ml_features_commence_ts
+13:40:31.705416 [debug]: Finished rendering [  0.42s] test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:40:31.705453 [debug]: Started analyzing test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.705472 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_fct_price_snapshot_team_code [success]
+13:40:31.705508 [debug]: Started analyzing test dbt_test__audit.not_null_fct_price_snapshot_team_code
+13:40:31.705527 [debug]: Finished rendering [  0.42s] test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_ [success]
+13:40:31.705564 [debug]: Started analyzing test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.705597 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap [success]
+13:40:31.705638 [debug]: Started analyzing test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:40:31.705664 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_fct_price_snapshot_venue [success]
+13:40:31.705702 [debug]: Started analyzing test dbt_test__audit.not_null_fct_price_snapshot_venue
+13:40:31.705723 [debug]: Finished rendering [  0.42s] test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket [success]
+13:40:31.705767 [debug]: Started analyzing test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket
+13:40:31.705793 [debug]: Finished rendering [  0.42s] test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:40:31.705903 [debug]: Started analyzing test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.705927 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_int_oddsapi_consensus_team_code [success]
+13:40:31.706026 [debug]: Started analyzing test dbt_test__audit.not_null_int_oddsapi_consensus_team_code
+13:40:31.706050 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_fct_price_snapshot_market_id [success]
+13:40:31.706094 [debug]: Started analyzing test dbt_test__audit.not_null_fct_price_snapshot_market_id
+13:40:31.706114 [debug]: Finished rendering [  0.42s] test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1 [success]
+13:40:31.706147 [debug]: Started analyzing test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:40:31.706168 [debug]: Finished rendering [  0.42s] test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl [success]
+13:40:31.706239 [debug]: Started analyzing test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl
+13:40:31.706336 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_fct_game_result_winner_code [success]
+13:40:31.706374 [debug]: Started analyzing test dbt_test__audit.not_null_fct_game_result_winner_code
+13:40:31.706397 [debug]: Finished rendering [  0.42s] test dbt_test__audit.not_null_ml_features_is_home [success]
+13:40:31.706412 [info ]: Finished rendering [  0.42s] (22 nodes, 0 skipped, 0 errors)
+13:40:31.706575 [debug]: Started analyzing test dbt_test__audit.not_null_ml_features_is_home
+13:40:31.706611 [debug]: Finished analyzing [  0.41s] test dbt_test__audit.assert_ml_features_pregame [success]
+13:40:31.706673 [info ]: Started running test dbt_test__audit.assert_ml_features_pregame
+13:40:31.706702 [debug]: Finished analyzing [  0.41s] test dbt_test__audit.assert_mid_between_0_and_1 [success]
+13:40:31.706750 [info ]: Started running test dbt_test__audit.assert_mid_between_0_and_1
+13:40:31.706777 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.not_null_ml_training_set_team_won [success]
+13:40:31.706836 [info ]: Started running test dbt_test__audit.not_null_ml_training_set_team_won
+13:40:31.707141 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.not_null_ml_features_commence_ts [success]
+13:40:31.707223 [info ]: Started running test dbt_test__audit.not_null_ml_features_commence_ts
+13:40:31.714086 [debug]: Writing runtime sql for node "test.team8_markets.assert_spread_non_negative"
+13:40:31.714552 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_ [success]
+13:40:31.714732 [info ]: Started running test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_
+13:40:31.714772 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:40:31.714827 [info ]: Started running test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.714852 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_fct_price_snapshot_team_code [success]
+13:40:31.714893 [info ]: Started running test dbt_test__audit.not_null_fct_price_snapshot_team_code
+13:40:31.714957 [debug]: Writing runtime sql for node "test.team8_markets.assert_gap_between_minus1_and_1"
+13:40:31.714971 [debug]: Started connection limit wait
+13:40:31.714968 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_ [success]
+13:40:31.715024 [info ]: Started running test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.715203 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap [success]
+13:40:31.715267 [info ]: Started running test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:40:31.714086 [debug]: Writing runtime sql for node "test.team8_markets.assert_devig_sums_to_one"
+13:40:31.715440 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_ [success]
+13:40:31.715514 [info ]: Started running test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:40:31.715567 [debug]: Started connection limit wait
+13:40:31.715777 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_fct_price_snapshot_venue [success]
+13:40:31.715848 [info ]: Started running test dbt_test__audit.not_null_fct_price_snapshot_venue
+13:40:31.716433 [debug]: Started connection limit wait
+13:40:31.716475 [debug]: Started connection limit wait
+13:40:31.716661 [debug]: Started connection limit wait
+13:40:31.716624 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_fct_game_result_winner_code [success]
+13:40:31.716689 [debug]: Started connection limit wait
+13:40:31.716714 [debug]: Started connection limit wait
+13:40:31.716734 [debug]: Started connection limit wait
+13:40:31.716726 [info ]: Started running test dbt_test__audit.not_null_fct_game_result_winner_code
+13:40:31.716755 [debug]: Started connection limit wait
+13:40:31.716775 [debug]: Started connection limit wait
+13:40:31.716768 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_ml_features_is_home [success]
+13:40:31.716821 [info ]: Started running test dbt_test__audit.not_null_ml_features_is_home
+13:40:31.716906 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_fct_price_snapshot_market_id [success]
+13:40:31.716969 [info ]: Started running test dbt_test__audit.not_null_fct_price_snapshot_market_id
+13:40:31.717343 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:40:31.717416 [info ]: Started running test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:31.717570 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_int_oddsapi_consensus_team_code [success]
+13:40:31.717630 [info ]: Started running test dbt_test__audit.not_null_int_oddsapi_consensus_team_code
+13:40:31.717671 [debug]: Started connection limit wait
+13:40:31.717701 [debug]: Started connection limit wait
+13:40:31.717723 [debug]: Started connection limit wait
+13:40:31.718157 [debug]: Started connection limit wait
+13:40:31.718153 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket [success]
+13:40:31.718186 [debug]: Started connection limit wait
+13:40:31.718221 [info ]: Started running test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket
+13:40:31.718260 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl [success]
+13:40:31.718327 [debug]: Started connection limit wait
+13:40:31.718333 [info ]: Started running test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl
+13:40:31.718371 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1 [success]
+13:40:31.718397 [debug]: Started connection limit wait
+13:40:31.718397 [info ]: Finished analyzing [  0.42s] (22 nodes, 0 skipped, 0 errors)
+13:40:31.718488 [info ]: Started running test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:40:31.718537 [debug]: Started connection limit wait
+13:40:31.718949 [debug]: Writing runtime sql for node "test.team8_markets.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_.5f28e4fb69"
+13:40:31.740319 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.17
+13:40:33.307317 [debug]: create_debug_span(...).entered() took 51.239µs
+13:40:33.307343 [debug]: create_debug_span(...).entered() took 64.955µs
+13:40:33.307353 [debug]: create_debug_span(...).entered() took 65.984µs
+13:40:33.307353 [debug]: create_debug_span(...).entered() took 55.305µs
+13:40:35.240870 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.933293604s
+13:40:35.240870 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.933337172s
+13:40:35.240961 [debug]: reader.schema() took 991ns
+13:40:35.241028 [debug]: reader.schema() took 464ns
+13:40:35.387526 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.079943333s
+13:40:35.387580 [debug]: reader.schema() took 740ns
+13:40:35.505565 [debug]: batch-consume loop (for res in reader) took 264.571747ms
+13:40:35.508460 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.201048871s
+13:40:35.517448 [debug]: batch-consume loop (for res in reader) took 276.374895ms
+13:40:35.520195 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.21278078s
+13:40:35.540235 [debug]: concat_batches + normalize_result_column_names took 19.9732ms
+13:40:35.540285 [debug]: record_current_span_status_from_attrs took 6.003µs
+13:40:35.540259 [debug]: concat_batches + normalize_result_column_names took 31.34086ms
+13:40:35.540323 [debug]: record_current_span_status_from_attrs took 28.167µs
+13:40:35.540325 [debug]: Query executed on node test.team8_markets.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_.5f28e4fb69:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_.5f28e4fb69", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(venue, '|', market_id, '|', team_code, '|', cast(snapshot_ts as string)) as unique_field
+  from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+  where concat(venue, '|', market_id, '|', team_code, '|', cast(snapshot_ts as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:35.540342 [debug]: Query executed on node test.team8_markets.assert_gap_between_minus1_and_1:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_gap_between_minus1_and_1", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select *
+from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`
+where gap < -1 or gap > 1
+  
+  
+      
+    ) dbt_internal_test
+13:40:35.540368 [debug]: drop(query_span_guard) (span exit/export) took 75.803µs
+13:40:35.540370 [debug]: drop(query_span_guard) (span exit/export) took 34.598µs
+13:40:35.598770 [debug]: Finished connection limit wait [  3.88s]
+13:40:35.598774 [debug]: Finished connection limit wait [  3.88s]
+13:40:35.598801 [info ]: Finished running [  3.89s] test dbt_test__audit.assert_gap_between_minus1_and_1 [pass]
+13:40:35.598934 [info ]:     Passed [  4.31s] test  assert_gap_between_minus1_and_1
+13:40:35.599060 [info ]: Finished running [  3.88s] test dbt_test__audit.unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_ [pass]
+13:40:35.599118 [info ]:     Passed [  4.31s] test  unique_fct_price_snapshot_concat_venue_market_id_team_code_cast_snapshot_ts_as_string_
+13:40:35.603231 [debug]: Writing runtime sql for node "test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369"
+13:40:35.604284 [debug]: Writing runtime sql for node "test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a"
+13:40:35.605060 [debug]: create_debug_span(...).entered() took 39.078µs
+13:40:35.605723 [debug]: create_debug_span(...).entered() took 32.331µs
+13:40:35.739292 [debug]: batch-consume loop (for res in reader) took 351.680641ms
+13:40:35.743392 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.43600031s
+13:40:35.743444 [debug]: concat_batches + normalize_result_column_names took 9.375µs
+13:40:35.743455 [debug]: record_current_span_status_from_attrs took 5.712µs
+13:40:35.743469 [debug]: Query executed on node test.team8_markets.assert_spread_non_negative:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_spread_non_negative", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select venue, market_id, team_code, snapshot_ts, bid, ask, spread
+from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+where spread < 0
+  
+  
+      
+    ) dbt_internal_test
+13:40:35.743508 [debug]: drop(query_span_guard) (span exit/export) took 45.221µs
+13:40:35.744105 [debug]: Finished connection limit wait [  4.03s]
+13:40:35.744130 [info ]: Finished running [  4.04s] test dbt_test__audit.assert_spread_non_negative [pass]
+13:40:35.744325 [info ]:     Passed [  4.46s] test  assert_spread_non_negative
+13:40:35.747045 [debug]: Writing runtime sql for node "test.team8_markets.not_null_fct_price_snapshot_team_code.8e751a917b"
+13:40:35.748060 [debug]: create_debug_span(...).entered() took 42.959µs
+13:40:35.758596 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.451059468s
+13:40:35.758644 [debug]: reader.schema() took 735ns
+13:40:36.120171 [debug]: batch-consume loop (for res in reader) took 361.496489ms
+13:40:36.122766 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.815369263s
+13:40:36.122818 [debug]: concat_batches + normalize_result_column_names took 11.171µs
+13:40:36.122831 [debug]: record_current_span_status_from_attrs took 5.782µs
+13:40:36.122864 [debug]: Query executed on node test.team8_markets.assert_devig_sums_to_one:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_devig_sums_to_one", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select snapshot_ts, event_id, sum(last_price) as total_prob
+from `ba882-team8-fall26`.`staging`.`int_oddsapi_consensus`
+group by snapshot_ts, event_id
+having abs(sum(last_price) - 1) > 0.01
+  
+  
+      
+    ) dbt_internal_test
+13:40:36.122900 [debug]: drop(query_span_guard) (span exit/export) took 64.214µs
+13:40:36.123441 [debug]: Finished connection limit wait [  4.41s]
+13:40:36.123437 [info ]: Finished running [  4.42s] test dbt_test__audit.assert_devig_sums_to_one [pass]
+13:40:36.123568 [info ]:     Passed [  4.83s] test  assert_devig_sums_to_one
+13:40:36.126217 [debug]: Writing runtime sql for node "test.team8_markets.assert_mid_between_0_and_1"
+13:40:36.127261 [debug]: create_debug_span(...).entered() took 32.024µs
+13:40:36.962608 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.357340701s
+13:40:36.962648 [debug]: reader.schema() took 630ns
+13:40:37.038693 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.432809345s
+13:40:37.038746 [debug]: reader.schema() took 665ns
+13:40:37.143631 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.39537119s
+13:40:37.143684 [debug]: reader.schema() took 750ns
+13:40:37.249516 [debug]: batch-consume loop (for res in reader) took 286.839834ms
+13:40:37.252044 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.646936392s
+13:40:37.252106 [debug]: concat_batches + normalize_result_column_names took 11.306µs
+13:40:37.252121 [debug]: record_current_span_status_from_attrs took 6.55µs
+13:40:37.252138 [debug]: Query executed on node test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) as unique_field
+  from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:37.252185 [debug]: drop(query_span_guard) (span exit/export) took 55.799µs
+13:40:37.252784 [debug]: Finished connection limit wait [  5.54s]
+13:40:37.252802 [info ]: Finished running [  1.65s] test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [pass]
+13:40:37.252921 [info ]:     Passed [  2.08s] test  unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:37.255573 [debug]: Writing runtime sql for node "test.team8_markets.assert_ml_features_pregame"
+13:40:37.256535 [debug]: create_debug_span(...).entered() took 40.997µs
+13:40:37.326882 [debug]: batch-consume loop (for res in reader) took 288.106101ms
+13:40:37.329418 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.723656097s
+13:40:37.329472 [debug]: concat_batches + normalize_result_column_names took 9.767µs
+13:40:37.329486 [debug]: record_current_span_status_from_attrs took 6.073µs
+13:40:37.329505 [debug]: Query executed on node test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code) as unique_field
+  from `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:37.329553 [debug]: drop(query_span_guard) (span exit/export) took 59.735µs
+13:40:37.330135 [debug]: Finished connection limit wait [  5.61s]
+13:40:37.330225 [info ]: Finished running [  1.73s] test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_ [pass]
+13:40:37.330402 [info ]:     Passed [  2.16s] test  unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:40:37.333337 [debug]: Writing runtime sql for node "test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d"
+13:40:37.334376 [debug]: create_debug_span(...).entered() took 31.852µs
+13:40:37.531996 [debug]: batch-consume loop (for res in reader) took 388.27952ms
+13:40:37.534646 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.786535892s
+13:40:37.534702 [debug]: concat_batches + normalize_result_column_names took 10.065µs
+13:40:37.534724 [debug]: record_current_span_status_from_attrs took 5.974µs
+13:40:37.534740 [debug]: Query executed on node test.team8_markets.not_null_fct_price_snapshot_team_code.8e751a917b:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_fct_price_snapshot_team_code.8e751a917b", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select team_code
+from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+where team_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:37.534787 [debug]: drop(query_span_guard) (span exit/export) took 55.267µs
+13:40:37.535278 [debug]: Finished connection limit wait [  5.82s]
+13:40:37.535326 [info ]: Finished running [  1.79s] test dbt_test__audit.not_null_fct_price_snapshot_team_code [pass]
+13:40:37.535473 [info ]:     Passed [  2.22s] test  not_null_fct_price_snapshot_team_code
+13:40:37.538273 [debug]: Writing runtime sql for node "test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f"
+13:40:37.539442 [debug]: create_debug_span(...).entered() took 141.554µs
+13:40:37.724815 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.597335712s
+13:40:37.724870 [debug]: reader.schema() took 730ns
+13:40:38.047844 [debug]: batch-consume loop (for res in reader) took 322.935626ms
+13:40:38.050277 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.922962509s
+13:40:38.050362 [debug]: concat_batches + normalize_result_column_names took 20.072µs
+13:40:38.050386 [debug]: record_current_span_status_from_attrs took 6.448µs
+13:40:38.050410 [debug]: Query executed on node test.team8_markets.assert_mid_between_0_and_1:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_mid_between_0_and_1", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select venue, market_id, team_code, snapshot_ts, bid, ask, mid
+from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+where mid < 0 or mid > 1
+   or bid < 0 or bid > 1
+   or ask < 0 or ask > 1
+  
+  
+      
+    ) dbt_internal_test
+13:40:38.050460 [debug]: drop(query_span_guard) (span exit/export) took 57.575µs
+13:40:38.051066 [debug]: Finished connection limit wait [  6.33s]
+13:40:38.051087 [info ]: Finished running [  1.94s] test dbt_test__audit.assert_mid_between_0_and_1 [pass]
+13:40:38.051188 [info ]:     Passed [  2.36s] test  assert_mid_between_0_and_1
+13:40:38.054839 [debug]: Writing runtime sql for node "test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2"
+13:40:38.056400 [debug]: create_debug_span(...).entered() took 38.284µs
+13:40:38.736402 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.479697318s
+13:40:38.736456 [debug]: reader.schema() took 712ns
+13:40:38.868263 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.533699326s
+13:40:38.868362 [debug]: reader.schema() took 920ns
+13:40:39.059156 [debug]: batch-consume loop (for res in reader) took 322.666892ms
+13:40:39.062836 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.806252516s
+13:40:39.062897 [debug]: concat_batches + normalize_result_column_names took 10.139µs
+13:40:39.062915 [debug]: record_current_span_status_from_attrs took 7.871µs
+13:40:39.062930 [debug]: Query executed on node test.team8_markets.assert_ml_features_pregame:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_ml_features_pregame", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- fails if any row was captured after tip-off (leakage)
+select * from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where snapshot_hour >= commence_ts
+  
+  
+      
+    ) dbt_internal_test
+13:40:39.062985 [debug]: drop(query_span_guard) (span exit/export) took 61.217µs
+13:40:39.063605 [debug]: Finished connection limit wait [  7.35s]
+13:40:39.063619 [info ]: Finished running [  1.82s] test dbt_test__audit.assert_ml_features_pregame [pass]
+13:40:39.063766 [info ]:     Passed [  2.24s] test  assert_ml_features_pregame
+13:40:39.066680 [debug]: Writing runtime sql for node "test.team8_markets.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_.33397e566e"
+13:40:39.067705 [debug]: create_debug_span(...).entered() took 30.35µs
+13:40:39.146271 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.606637178s
+13:40:39.146376 [debug]: reader.schema() took 1.019µs
+13:40:39.207333 [debug]: batch-consume loop (for res in reader) took 338.936812ms
+13:40:39.210953 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.876531967s
+13:40:39.211014 [debug]: concat_batches + normalize_result_column_names took 8.79µs
+13:40:39.211027 [debug]: record_current_span_status_from_attrs took 5.616µs
+13:40:39.211040 [debug]: Query executed on node test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select commence_ts
+from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where commence_ts is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:39.211072 [debug]: drop(query_span_guard) (span exit/export) took 38.637µs
+13:40:39.211628 [debug]: Finished connection limit wait [  7.49s]
+13:40:39.211637 [info ]: Finished running [  1.89s] test dbt_test__audit.not_null_ml_features_commence_ts [pass]
+13:40:39.211796 [info ]:     Passed [  2.31s] test  not_null_ml_features_commence_ts
+13:40:39.214567 [debug]: Writing runtime sql for node "test.team8_markets.not_null_fct_price_snapshot_venue.c573bcfeab"
+13:40:39.215656 [debug]: create_debug_span(...).entered() took 33.696µs
+13:40:39.334456 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.27784129s
+13:40:39.334506 [debug]: reader.schema() took 746ns
+13:40:39.446290 [debug]: batch-consume loop (for res in reader) took 299.879866ms
+13:40:39.449141 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.909652599s
+13:40:39.449192 [debug]: concat_batches + normalize_result_column_names took 10.25µs
+13:40:39.449208 [debug]: record_current_span_status_from_attrs took 6.952µs
+13:40:39.449228 [debug]: Query executed on node test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select team_won
+from `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+where team_won is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:39.449279 [debug]: drop(query_span_guard) (span exit/export) took 58.257µs
+13:40:39.449819 [debug]: Finished connection limit wait [  7.73s]
+13:40:39.449835 [info ]: Finished running [  1.92s] test dbt_test__audit.not_null_ml_training_set_team_won [pass]
+13:40:39.449990 [info ]:     Passed [  2.34s] test  not_null_ml_training_set_team_won
+13:40:39.452729 [debug]: Writing runtime sql for node "test.team8_markets.not_null_fct_price_snapshot_market_id.157f6222c8"
+13:40:39.453765 [debug]: create_debug_span(...).entered() took 34.124µs
+13:40:39.645001 [debug]: batch-consume loop (for res in reader) took 310.462344ms
+13:40:39.647999 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.591540883s
+13:40:39.648052 [debug]: concat_batches + normalize_result_column_names took 8.888µs
+13:40:39.648065 [debug]: record_current_span_status_from_attrs took 6.562µs
+13:40:39.648076 [debug]: Query executed on node test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select abs_gap
+from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`
+where abs_gap is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:39.648115 [debug]: drop(query_span_guard) (span exit/export) took 43.676µs
+13:40:39.648686 [debug]: Finished connection limit wait [  7.93s]
+13:40:39.648703 [info ]: Finished running [  1.60s] test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap [fail]
+13:40:39.648797 [info ]:     Failed [  2.03s] test  not_null_fct_cross_venue_gap_abs_gap (models/marts/schema.yml:35:22)
+13:40:39.648797 [info ]: Test failed (2 failed row(s)): not_null_fct_cross_venue_gap_abs_gap
+13:40:39.651552 [debug]: Writing runtime sql for node "test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7"
+13:40:39.652574 [debug]: create_debug_span(...).entered() took 32.142µs
+13:40:40.389425 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.32153254s
+13:40:40.389479 [debug]: reader.schema() took 1.027µs
+13:40:40.448418 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.232562516s
+13:40:40.448485 [debug]: reader.schema() took 770ns
+13:40:40.761404 [debug]: batch-consume loop (for res in reader) took 312.888151ms
+13:40:40.764482 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.548757477s
+13:40:40.764538 [debug]: concat_batches + normalize_result_column_names took 10.131µs
+13:40:40.764554 [debug]: record_current_span_status_from_attrs took 7.146µs
+13:40:40.764570 [debug]: Query executed on node test.team8_markets.not_null_fct_price_snapshot_venue.c573bcfeab:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_fct_price_snapshot_venue.c573bcfeab", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select venue
+from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+where venue is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:40.764620 [debug]: drop(query_span_guard) (span exit/export) took 56.747µs
+13:40:40.765246 [debug]: Finished connection limit wait [  9.05s]
+13:40:40.765265 [info ]: Finished running [  1.56s] test dbt_test__audit.not_null_fct_price_snapshot_venue [pass]
+13:40:40.765442 [info ]:     Passed [  1.98s] test  not_null_fct_price_snapshot_venue
+13:40:40.768091 [debug]: Writing runtime sql for node "test.team8_markets.not_null_int_oddsapi_consensus_team_code.301949537f"
+13:40:40.769162 [debug]: create_debug_span(...).entered() took 33.002µs
+13:40:40.901494 [debug]: batch-consume loop (for res in reader) took 511.982855ms
+13:40:40.904101 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.836341775s
+13:40:40.904161 [debug]: concat_batches + normalize_result_column_names took 11.135µs
+13:40:40.904176 [debug]: record_current_span_status_from_attrs took 6.962µs
+13:40:40.904191 [debug]: Query executed on node test.team8_markets.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_.33397e566e:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_.33397e566e", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code) as unique_field
+  from `ba882-team8-fall26`.`mart`.`fct_game_result`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:40.904243 [debug]: drop(query_span_guard) (span exit/export) took 58.961µs
+13:40:40.904808 [debug]: Finished connection limit wait [  9.19s]
+13:40:40.904823 [info ]: Finished running [  1.84s] test dbt_test__audit.unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_ [pass]
+13:40:40.904970 [info ]:     Passed [  2.27s] test  unique_fct_game_result_concat_league_cast_game_date_as_string_matchup_code_
+13:40:40.908332 [debug]: Writing runtime sql for node "test.team8_markets.not_null_ml_features_is_home.d903cf872a"
+13:40:40.909740 [debug]: create_debug_span(...).entered() took 33.819µs
+13:40:41.055962 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.403178526s
+13:40:41.056012 [debug]: reader.schema() took 813ns
+13:40:41.075432 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.621491828s
+13:40:41.075485 [debug]: reader.schema() took 728ns
+13:40:41.356915 [debug]: batch-consume loop (for res in reader) took 300.86844ms
+13:40:41.359502 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.706876847s
+13:40:41.359563 [debug]: concat_batches + normalize_result_column_names took 10.686µs
+13:40:41.359581 [debug]: record_current_span_status_from_attrs took 7.414µs
+13:40:41.359599 [debug]: Query executed on node test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) as unique_field
+  from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:41.359648 [debug]: drop(query_span_guard) (span exit/export) took 56.978µs
+13:40:41.360326 [debug]: Finished connection limit wait [  9.64s]
+13:40:41.360344 [info ]: Finished running [  1.71s] test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [pass]
+13:40:41.360453 [info ]:     Passed [  2.14s] test  unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:40:41.363345 [debug]: Writing runtime sql for node "test.team8_markets.not_null_fct_game_result_winner_code.4d72ef1eec"
+13:40:41.364464 [debug]: create_debug_span(...).entered() took 34.444µs
+13:40:41.377019 [debug]: batch-consume loop (for res in reader) took 301.499727ms
+13:40:41.379752 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.925938349s
+13:40:41.379810 [debug]: concat_batches + normalize_result_column_names took 9.526µs
+13:40:41.379825 [debug]: record_current_span_status_from_attrs took 6.596µs
+13:40:41.379839 [debug]: Query executed on node test.team8_markets.not_null_fct_price_snapshot_market_id.157f6222c8:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_fct_price_snapshot_market_id.157f6222c8", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select market_id
+from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+where market_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:41.379873 [debug]: drop(query_span_guard) (span exit/export) took 41.54µs
+13:40:41.380424 [debug]: Finished connection limit wait [  9.66s]
+13:40:41.380429 [info ]: Finished running [  1.93s] test dbt_test__audit.not_null_fct_price_snapshot_market_id [pass]
+13:40:41.380575 [info ]:     Passed [  2.36s] test  not_null_fct_price_snapshot_market_id
+13:40:41.383377 [debug]: Writing runtime sql for node "test.team8_markets.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.a80361311c"
+13:40:41.384417 [debug]: create_debug_span(...).entered() took 32.502µs
+13:40:42.095932 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.185982762s
+13:40:42.095993 [debug]: reader.schema() took 697ns
+13:40:42.421778 [debug]: batch-consume loop (for res in reader) took 325.756389ms
+13:40:42.424488 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.514690297s
+13:40:42.424546 [debug]: concat_batches + normalize_result_column_names took 9.067µs
+13:40:42.424558 [debug]: record_current_span_status_from_attrs took 5.627µs
+13:40:42.424569 [debug]: Query executed on node test.team8_markets.not_null_ml_features_is_home.d903cf872a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_ml_features_is_home.d903cf872a", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select is_home
+from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where is_home is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:42.424603 [debug]: drop(query_span_guard) (span exit/export) took 39.356µs
+13:40:42.425085 [debug]: Finished connection limit wait [ 10.71s]
+13:40:42.425105 [info ]: Finished running [  1.52s] test dbt_test__audit.not_null_ml_features_is_home [pass]
+13:40:42.425240 [info ]:     Passed [  1.95s] test  not_null_ml_features_is_home
+13:40:42.427754 [debug]: Writing runtime sql for node "test.team8_markets.accepted_values_fct_price_snapshot_league__nba__nhl__nfl.55183d24e8"
+13:40:42.428832 [debug]: create_debug_span(...).entered() took 18.941µs
+13:40:42.610589 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.245934973s
+13:40:42.610637 [debug]: reader.schema() took 724ns
+13:40:42.792947 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.023558115s
+13:40:42.793001 [debug]: reader.schema() took 679ns
+13:40:42.884608 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.499994487s
+13:40:42.884660 [debug]: reader.schema() took 702ns
+13:40:42.900673 [debug]: batch-consume loop (for res in reader) took 290.005616ms
+13:40:42.903742 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.53922593s
+13:40:42.903800 [debug]: concat_batches + normalize_result_column_names took 9.053µs
+13:40:42.903814 [debug]: record_current_span_status_from_attrs took 6.233µs
+13:40:42.903831 [debug]: Query executed on node test.team8_markets.not_null_fct_game_result_winner_code.4d72ef1eec:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_fct_game_result_winner_code.4d72ef1eec", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select winner_code
+from `ba882-team8-fall26`.`mart`.`fct_game_result`
+where winner_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:42.903865 [debug]: drop(query_span_guard) (span exit/export) took 44.943µs
+13:40:42.904403 [debug]: Finished connection limit wait [ 11.19s]
+13:40:42.904423 [info ]: Finished running [  1.55s] test dbt_test__audit.not_null_fct_game_result_winner_code [pass]
+13:40:42.904556 [info ]:     Passed [  1.97s] test  not_null_fct_game_result_winner_code
+13:40:42.907527 [debug]: Writing runtime sql for node "test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a"
+13:40:42.909002 [debug]: create_debug_span(...).entered() took 22.598µs
+13:40:43.160462 [debug]: batch-consume loop (for res in reader) took 367.427748ms
+13:40:43.163501 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.394285813s
+13:40:43.163560 [debug]: concat_batches + normalize_result_column_names took 10.609µs
+13:40:43.163578 [debug]: record_current_span_status_from_attrs took 7.571µs
+13:40:43.163600 [debug]: Query executed on node test.team8_markets.not_null_int_oddsapi_consensus_team_code.301949537f:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_int_oddsapi_consensus_team_code.301949537f", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select team_code
+from `ba882-team8-fall26`.`staging`.`int_oddsapi_consensus`
+where team_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:43.163650 [debug]: drop(query_span_guard) (span exit/export) took 62.46µs
+13:40:43.164347 [info ]: Finished running [  2.40s] test dbt_test__audit.not_null_int_oddsapi_consensus_team_code [pass]
+13:40:43.164482 [info ]:     Passed [  2.83s] test  not_null_int_oddsapi_consensus_team_code
+13:40:43.178461 [debug]: batch-consume loop (for res in reader) took 293.76975ms
+13:40:43.181999 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.79753365s
+13:40:43.182051 [debug]: concat_batches + normalize_result_column_names took 8.908µs
+13:40:43.182064 [debug]: record_current_span_status_from_attrs took 6.539µs
+13:40:43.182081 [debug]: Query executed on node test.team8_markets.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.a80361311c:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.a80361311c", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        venue as value_field,
+        count(*) as n_records
+
+    from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+    group by venue
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'oddsapi','polymarket'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:43.182118 [debug]: drop(query_span_guard) (span exit/export) took 48.07µs
+13:40:43.182647 [info ]: Finished running [  1.80s] test dbt_test__audit.accepted_values_fct_price_snapshot_venue__oddsapi__polymarket [pass]
+13:40:43.182730 [info ]:     Passed [  2.23s] test  accepted_values_fct_price_snapshot_venue__oddsapi__polymarket
+13:40:44.085166 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.656218105s
+13:40:44.085219 [debug]: reader.schema() took 699ns
+13:40:44.388961 [debug]: batch-consume loop (for res in reader) took 303.711626ms
+13:40:44.391839 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.962934656s
+13:40:44.391904 [debug]: concat_batches + normalize_result_column_names took 13.462µs
+13:40:44.391921 [debug]: record_current_span_status_from_attrs took 9.514µs
+13:40:44.391946 [debug]: Query executed on node test.team8_markets.accepted_values_fct_price_snapshot_league__nba__nhl__nfl.55183d24e8:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.accepted_values_fct_price_snapshot_league__nba__nhl__nfl.55183d24e8", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        league as value_field,
+        count(*) as n_records
+
+    from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+    group by league
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'nba','nhl','nfl'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:44.391992 [debug]: drop(query_span_guard) (span exit/export) took 57.937µs
+13:40:44.392607 [info ]: Finished running [  1.97s] test dbt_test__audit.accepted_values_fct_price_snapshot_league__nba__nhl__nfl [pass]
+13:40:44.392690 [info ]:     Passed [  2.40s] test  accepted_values_fct_price_snapshot_league__nba__nhl__nfl
+13:40:44.523497 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.614271675s
+13:40:44.523600 [debug]: reader.schema() took 786ns
+13:40:44.854868 [debug]: batch-consume loop (for res in reader) took 331.224857ms
+13:40:44.857472 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.948415286s
+13:40:44.857518 [debug]: concat_batches + normalize_result_column_names took 9.245µs
+13:40:44.857530 [debug]: record_current_span_status_from_attrs took 6.233µs
+13:40:44.857543 [debug]: Query executed on node test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        team_won as value_field,
+        count(*) as n_records
+
+    from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+    group by team_won
+
+)
+
+select *
+from all_values
+where value_field not in (
+    0,1
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:40:44.857584 [debug]: drop(query_span_guard) (span exit/export) took 48.161µs
+13:40:44.858127 [info ]: Finished running [  1.95s] test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1 [pass]
+13:40:44.858216 [info ]: Finished running [ 13.15s] (22 nodes, 0 skipped, 1 errors)
+13:40:44.858316 [info ]:     Passed [  2.38s] test  accepted_values_ml_features_team_won__False__0__1
+13:40:45.249261 [info ]: 
+==================== Execution Summary =====================
+Finished 'test' with 1 error for target 'dev' [17.8s]
+Processed: 22 tests
+Summary: 22 total | 21 success | 1 error
+==================== 2026-11-24T13:42:22.460499Z | 01a20dcb-13a5-7582-924c-8f4e26063408 ====================
+13:42:22.460870 [info ]: dbt-fusion 2.0.0-preview.218
+13:42:22.461329 [info ]: Started loading project
+13:42:22.462461 [info ]: Loading profiles.yml
+13:42:22.474443 [debug]:    Started loading packages
+13:42:22.476486 [debug]:     Loaded [  0.00s] packages
+13:42:22.477545 [info ]: Finished loading project [  0.02s]
+13:42:22.478062 [info ]: Started parsing
+13:42:22.531824 [debug]: Finished parsing models/marts/schema.yml [  0.00s]
+13:42:22.532233 [debug]: Finished parsing models/staging/sources.yml [  0.00s]
+13:42:22.537210 [debug]: Finished parsing models/intermediate/int_oddsapi_consensus.sql [  0.00s]
+13:42:22.537953 [debug]: Finished parsing models/intermediate/int_team_prices.sql [  0.00s]
+13:42:22.539011 [debug]: Finished parsing models/marts/dim_game.sql [  0.00s]
+13:42:22.540211 [debug]: Finished parsing models/marts/fct_cross_venue_gap.sql [  0.00s]
+13:42:22.541240 [debug]: Finished parsing models/marts/fct_game_result.sql [  0.00s]
+13:42:22.542658 [debug]: Finished parsing models/marts/fct_price_snapshot.sql [  0.00s]
+13:42:22.543838 [debug]: Finished parsing models/marts/ml_features.sql [  0.00s]
+13:42:22.544704 [debug]: Finished parsing models/marts/ml_training_set.sql [  0.00s]
+13:42:22.545660 [debug]: Finished parsing models/marts/rpt_game_gap.sql [  0.00s]
+13:42:22.546293 [debug]: Finished parsing models/staging/stg_oddsapi_book_prices.sql [  0.00s]
+13:42:22.546839 [debug]: Finished parsing models/staging/stg_oddsapi_results.sql [  0.00s]
+13:42:22.547432 [debug]: Finished parsing models/staging/stg_polymarket_markets.sql [  0.00s]
+13:42:22.565033 [debug]: Finished parsing tests/assert_devig_sums_to_one.sql [  0.00s]
+13:42:22.565682 [debug]: Finished parsing tests/assert_gap_between_minus1_and_1.sql [  0.00s]
+13:42:22.566229 [debug]: Finished parsing tests/assert_mid_between_0_and_1.sql [  0.00s]
+13:42:22.566629 [debug]: Finished parsing tests/assert_ml_features_pregame.sql [  0.00s]
+13:42:22.567120 [debug]: Finished parsing tests/assert_spread_non_negative.sql [  0.00s]
+13:42:22.567757 [debug]: Finished parsing target/generic_tests/unique_dim_game_2d94ab75c68306ce63aaea034443ff31.sql [  0.00s]
+13:42:22.568410 [debug]: Finished parsing target/generic_tests/not_null_dim_game_matchup_code.sql [  0.00s]
+13:42:22.568971 [debug]: Finished parsing target/generic_tests/unique_fct_cross_venue_gap_f53a42105e43bb7f1feb367fd1c66b33.sql [  0.00s]
+13:42:22.569605 [debug]: Finished parsing target/generic_tests/not_null_fct_cross_venue_gap_abs_gap.sql [  0.00s]
+13:42:22.570159 [debug]: Finished parsing target/generic_tests/unique_fct_game_result_74d6ffd4e509c543626dfe7b0cb4e9cf.sql [  0.00s]
+13:42:22.570766 [debug]: Finished parsing target/generic_tests/not_null_fct_game_result_winner_code.sql [  0.00s]
+13:42:22.571351 [debug]: Finished parsing target/generic_tests/unique_fct_price_snapshot_4d8d508cab337122bdfb0f535cfd517b.sql [  0.00s]
+13:42:22.571913 [debug]: Finished parsing target/generic_tests/accepted_values_fct_price_snapshot_league__nba__nhl__nfl.sql [  0.00s]
+13:42:22.572520 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_market_id.sql [  0.00s]
+13:42:22.573098 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_team_code.sql [  0.00s]
+13:42:22.573711 [debug]: Finished parsing target/generic_tests/not_null_fct_price_snapshot_venue.sql [  0.00s]
+13:42:22.574292 [debug]: Finished parsing target/generic_tests/accepted_values_fct_price_snapshot_venue__oddsapi__polymarket.sql [  0.00s]
+13:42:22.574878 [debug]: Finished parsing target/generic_tests/not_null_int_oddsapi_consensus_team_code.sql [  0.00s]
+13:42:22.575461 [debug]: Finished parsing target/generic_tests/unique_ml_features_cef42b4adadd2a3049438f0843da88cd.sql [  0.00s]
+13:42:22.576024 [debug]: Finished parsing target/generic_tests/not_null_ml_features_commence_ts.sql [  0.00s]
+13:42:22.576606 [debug]: Finished parsing target/generic_tests/not_null_ml_features_is_home.sql [  0.00s]
+13:42:22.577196 [debug]: Finished parsing target/generic_tests/accepted_values_ml_features_team_won__False__0__1.sql [  0.00s]
+13:42:22.577773 [debug]: Finished parsing target/generic_tests/unique_ml_training_set_bb8685bfdd0203c5657b080b12dbcdcf.sql [  0.00s]
+13:42:22.578487 [debug]: Finished parsing target/generic_tests/not_null_ml_training_set_team_won.sql [  0.00s]
+13:42:22.579106 [debug]: Finished parsing target/generic_tests/unique_rpt_game_gap_452023530841ad18138711dada116711.sql [  0.00s]
+13:42:22.708214 [info ]: Finished parsing [  0.23s]
+13:42:23.353687 [info ]: Started scheduling
+13:42:23.354198 [info ]: Finished scheduling [  0.00s]
+13:42:23.357072 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "mart", table: "fct_price_snapshot" }) and interval: None
+13:42:23.357114 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "mart", table: "fct_game_result" }) and interval: None
+13:42:23.357121 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "ba882-team8-fall26", schema: "staging", table: "int_team_prices" }) and interval: None
+13:42:23.398095 [debug]:    Started downloading relations (1 items)
+13:42:23.398499 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.17
+13:42:24.677066 [debug]:   Finished [  1.28s] downloading relations (1 items)
+13:42:24.678531 [info ]: Started building task graph
+13:42:24.679023 [info ]: Finished building task graph [  0.00s]
+13:42:24.854365 [info ]: Started rendering (15 nodes)
+13:42:24.854488 [info ]: Started model mart.fct_cross_venue_gap
+13:42:24.854508 [debug]: Started rendering model mart.fct_cross_venue_gap
+13:42:24.868139 [debug]: Compiled SQL for node model.team8_markets.fct_cross_venue_gap at target/compiled/team8_markets/models/marts/fct_cross_venue_gap.sql
+13:42:24.868470 [debug]: Finished rendering [  0.01s] model mart.fct_cross_venue_gap [success]
+13:42:24.868624 [info ]: Started analyzing (15 nodes)
+13:42:24.868727 [debug]: Started analyzing model mart.fct_cross_venue_gap
+13:42:24.895254 [debug]: Finished analyzing [  0.03s] model mart.fct_cross_venue_gap [success]
+13:42:24.895428 [info ]: Started running (15 nodes)
+13:42:24.895509 [info ]: Started running model mart.fct_cross_venue_gap
+13:42:24.959838 [debug]: Invalid value for on_schema_change (None) specified. Setting default value of ignore.
+13:42:25.162924 [debug]: Writing runtime sql for node "model.team8_markets.fct_cross_venue_gap"
+13:42:25.163978 [debug]: create_debug_span(...).entered() took 36.71µs
+13:42:28.535094 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 3.370993174s
+13:42:28.535142 [debug]: reader.schema() took 693ns
+13:42:30.084711 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 4.920677068s
+13:42:30.084789 [debug]: concat_batches + normalize_result_column_names took 31.09µs
+13:42:30.084808 [debug]: record_current_span_status_from_attrs took 7.377µs
+13:42:30.084836 [debug]: Query executed on node model.team8_markets.fct_cross_venue_gap:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.team8_markets.fct_cross_venue_gap", "profile_name": "team8_markets", "target_name": "dev"} */
+-- back compat for old kwarg name
+  
+  
+        
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+    
+
+    
+
+    merge into `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap` as DBT_INTERNAL_DEST
+        using (
+
+with latest as (
+    select *
+    from `ba882-team8-fall26`.`mart`.`fct_price_snapshot`
+    
+    where snapshot_hour >= (select timestamp_sub(max(snapshot_hour), interval 1 hour) from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`)
+    
+    qualify row_number() over (
+        partition by venue, league, game_date, matchup_code, team_code, snapshot_hour
+        order by snapshot_ts desc) = 1
+),
+o as (select * from latest where venue = 'oddsapi'),
+p as (select * from latest where venue = 'polymarket')
+
+select
+    league, game_date, matchup_code, team_code, snapshot_hour,
+    o.mid               as book_mid,
+    p.mid               as poly_mid,
+    o.spread            as book_spread,
+    p.spread            as poly_spread,
+    o.mid - p.mid       as gap,             -- positive: books higher than Polymarket
+    abs(o.mid - p.mid)  as abs_gap,
+    o.market_id         as oddsapi_event_id,
+    p.market_id         as poly_market_id
+from o
+join p using (league, game_date, matchup_code, team_code, snapshot_hour)
+where o.mid is not null and p.mid is not null   -- no quote on one venue = no comparable price
+        ) as DBT_INTERNAL_SOURCE
+        on (
+                    DBT_INTERNAL_SOURCE.league = DBT_INTERNAL_DEST.league
+                ) and (
+                    DBT_INTERNAL_SOURCE.game_date = DBT_INTERNAL_DEST.game_date
+                ) and (
+                    DBT_INTERNAL_SOURCE.matchup_code = DBT_INTERNAL_DEST.matchup_code
+                ) and (
+                    DBT_INTERNAL_SOURCE.team_code = DBT_INTERNAL_DEST.team_code
+                ) and (
+                    DBT_INTERNAL_SOURCE.snapshot_hour = DBT_INTERNAL_DEST.snapshot_hour
+                )
+
+    
+    when matched then update set
+        `league` = DBT_INTERNAL_SOURCE.`league`,`game_date` = DBT_INTERNAL_SOURCE.`game_date`,`matchup_code` = DBT_INTERNAL_SOURCE.`matchup_code`,`team_code` = DBT_INTERNAL_SOURCE.`team_code`,`snapshot_hour` = DBT_INTERNAL_SOURCE.`snapshot_hour`,`book_mid` = DBT_INTERNAL_SOURCE.`book_mid`,`poly_mid` = DBT_INTERNAL_SOURCE.`poly_mid`,`book_spread` = DBT_INTERNAL_SOURCE.`book_spread`,`poly_spread` = DBT_INTERNAL_SOURCE.`poly_spread`,`gap` = DBT_INTERNAL_SOURCE.`gap`,`abs_gap` = DBT_INTERNAL_SOURCE.`abs_gap`,`oddsapi_event_id` = DBT_INTERNAL_SOURCE.`oddsapi_event_id`,`poly_market_id` = DBT_INTERNAL_SOURCE.`poly_market_id`
+    
+
+    when not matched then insert
+        (`league`, `game_date`, `matchup_code`, `team_code`, `snapshot_hour`, `book_mid`, `poly_mid`, `book_spread`, `poly_spread`, `gap`, `abs_gap`, `oddsapi_event_id`, `poly_market_id`)
+    values
+        (`league`, `game_date`, `matchup_code`, `team_code`, `snapshot_hour`, `book_mid`, `poly_mid`, `book_spread`, `poly_spread`, `gap`, `abs_gap`, `oddsapi_event_id`, `poly_market_id`)
+
+
+    
+13:42:30.084887 [debug]: drop(query_span_guard) (span exit/export) took 63.988µs
+13:42:30.087224 [info ]: Finished running [  5.19s] model mart.fct_cross_venue_gap [success]
+13:42:30.087326 [info ]:  Succeeded [  5.23s] model mart.fct_cross_venue_gap (incremental)
+13:42:30.087491 [info ]: Started model mart.rpt_game_gap
+13:42:30.087523 [debug]: Started rendering model mart.rpt_game_gap
+13:42:30.087596 [info ]: Started test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:42:30.087628 [debug]: Started rendering test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:42:30.087675 [info ]: Started test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:30.087704 [debug]: Started rendering test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:30.087733 [info ]: Started test dbt_test__audit.assert_gap_between_minus1_and_1
+13:42:30.087749 [debug]: Started rendering test dbt_test__audit.assert_gap_between_minus1_and_1
+13:42:30.087776 [info ]: Started model ai_datasets.ml_features
+13:42:30.087801 [debug]: Started rendering model ai_datasets.ml_features
+13:42:30.088923 [debug]: Compiled SQL for node model.team8_markets.rpt_game_gap at target/compiled/team8_markets/models/marts/rpt_game_gap.sql
+13:42:30.088932 [debug]: Compiled SQL for node test.team8_markets.assert_gap_between_minus1_and_1 at target/compiled/team8_markets/tests/assert_gap_between_minus1_and_1.sql
+13:42:30.089151 [debug]: Finished rendering [  0.00s] model mart.rpt_game_gap [success]
+13:42:30.089292 [debug]: Started analyzing model mart.rpt_game_gap
+13:42:30.089738 [debug]: Compiled SQL for node test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369 at target/compiled/team8_markets/target/generic_tests/unique_fct_cross_venue_gap_f53a42105e43bb7f1feb367fd1c66b33.sql
+13:42:30.089822 [debug]: Compiled SQL for node model.team8_markets.ml_features at target/compiled/team8_markets/models/marts/ml_features.sql
+13:42:30.089914 [debug]: Compiled SQL for node test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2 at target/compiled/team8_markets/target/generic_tests/not_null_fct_cross_venue_gap_abs_gap.sql
+13:42:30.089905 [debug]: Finished rendering [  0.00s] test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:42:30.089989 [debug]: Started analyzing test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:30.090021 [debug]: Finished rendering [  0.00s] test dbt_test__audit.assert_gap_between_minus1_and_1 [success]
+13:42:30.090064 [debug]: Started analyzing test dbt_test__audit.assert_gap_between_minus1_and_1
+13:42:30.090092 [debug]: Finished rendering [  0.00s] model ai_datasets.ml_features [success]
+13:42:30.090174 [debug]: Started analyzing model ai_datasets.ml_features
+13:42:30.090231 [debug]: Finished rendering [  0.00s] test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap [success]
+13:42:30.090321 [debug]: Started analyzing test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:42:30.093200 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.assert_gap_between_minus1_and_1 [success]
+13:42:30.093336 [info ]: Started running test dbt_test__audit.assert_gap_between_minus1_and_1
+13:42:30.097990 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:42:30.098135 [info ]: Started running test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:30.098577 [debug]: Finished analyzing [  0.01s] test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap [success]
+13:42:30.098698 [info ]: Started running test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap
+13:42:30.101678 [debug]: Finished analyzing [  0.01s] model mart.rpt_game_gap [success]
+13:42:30.101757 [debug]: Writing runtime sql for node "test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369"
+13:42:30.102515 [debug]: Writing runtime sql for node "test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2"
+13:42:30.102568 [debug]: Writing runtime sql for node "test.team8_markets.assert_gap_between_minus1_and_1"
+13:42:30.103495 [debug]: create_debug_span(...).entered() took 24.502µs
+13:42:30.108588 [debug]: create_debug_span(...).entered() took 46.34µs
+13:42:30.116409 [debug]: create_debug_span(...).entered() took 48.399µs
+13:42:30.131539 [debug]: Finished analyzing [  0.04s] model ai_datasets.ml_features [success]
+13:42:31.366496 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.247160832s
+13:42:31.366547 [debug]: reader.schema() took 716ns
+13:42:31.369580 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.260888378s
+13:42:31.369622 [debug]: reader.schema() took 713ns
+13:42:31.551995 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.448311407s
+13:42:31.552051 [debug]: reader.schema() took 630ns
+13:42:31.636236 [debug]: batch-consume loop (for res in reader) took 269.657838ms
+13:42:31.639982 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.523511468s
+13:42:31.640046 [debug]: concat_batches + normalize_result_column_names took 13.139µs
+13:42:31.640064 [debug]: record_current_span_status_from_attrs took 6.48µs
+13:42:31.640088 [debug]: Query executed on node test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_fct_cross_venue_gap_abs_gap.42cfb801f2", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select abs_gap
+from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`
+where abs_gap is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:31.640136 [debug]: drop(query_span_guard) (span exit/export) took 55.61µs
+13:42:31.640789 [info ]: Finished running [  1.54s] test dbt_test__audit.not_null_fct_cross_venue_gap_abs_gap [pass]
+13:42:31.640960 [info ]:     Passed [  1.55s] test  not_null_fct_cross_venue_gap_abs_gap
+13:42:31.740460 [debug]: batch-consume loop (for res in reader) took 370.807795ms
+13:42:31.743163 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.63451332s
+13:42:31.743218 [debug]: concat_batches + normalize_result_column_names took 9.271µs
+13:42:31.743232 [debug]: record_current_span_status_from_attrs took 8.772µs
+13:42:31.743254 [debug]: Query executed on node test.team8_markets.assert_gap_between_minus1_and_1:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_gap_between_minus1_and_1", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+select *
+from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`
+where gap < -1 or gap > 1
+  
+  
+      
+    ) dbt_internal_test
+13:42:31.743325 [debug]: drop(query_span_guard) (span exit/export) took 82.538µs
+13:42:31.743909 [info ]: Finished running [  1.65s] test dbt_test__audit.assert_gap_between_minus1_and_1 [pass]
+13:42:31.744049 [info ]:     Passed [  1.66s] test  assert_gap_between_minus1_and_1
+13:42:31.862323 [debug]: batch-consume loop (for res in reader) took 310.222156ms
+13:42:31.864592 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.761040634s
+13:42:31.864671 [debug]: concat_batches + normalize_result_column_names took 14.53µs
+13:42:31.864694 [debug]: record_current_span_status_from_attrs took 13.302µs
+13:42:31.864719 [debug]: Query executed on node test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.e30d914369", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) as unique_field
+  from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:31.864792 [debug]: drop(query_span_guard) (span exit/export) took 86.638µs
+13:42:31.865338 [info ]: Finished running [  1.77s] test dbt_test__audit.unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [pass]
+13:42:31.865432 [info ]:     Passed [  1.78s] test  unique_fct_cross_venue_gap_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:31.865582 [info ]: Started running model ai_datasets.ml_features
+13:42:31.865642 [info ]: Started running model mart.rpt_game_gap
+13:42:32.265795 [debug]: Writing runtime sql for node "model.team8_markets.rpt_game_gap"
+13:42:32.266813 [debug]: create_debug_span(...).entered() took 38.387µs
+13:42:32.620617 [debug]: Writing runtime sql for node "model.team8_markets.ml_features"
+13:42:32.621634 [debug]: create_debug_span(...).entered() took 36.969µs
+13:42:34.901836 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.63489426s
+13:42:34.901883 [debug]: reader.schema() took 650ns
+13:42:36.670392 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 4.048648965s
+13:42:36.670441 [debug]: reader.schema() took 730ns
+13:42:37.620395 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 4.998709101s
+13:42:37.620529 [debug]: concat_batches + normalize_result_column_names took 75.837µs
+13:42:37.620566 [debug]: record_current_span_status_from_attrs took 6.561µs
+13:42:37.620619 [debug]: Query executed on node model.team8_markets.ml_features:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.team8_markets.ml_features", "profile_name": "team8_markets", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+-- One row per game x team x PRE-GAME snapshot, with the outcome once known.
+-- Grain: league, game_date, matchup_code, team_code, snapshot_hour
+
+with game_meta as (   -- tip-off time and home/away come from the Odds API rows
+    select
+        league, game_date, matchup_code, team_code,
+        max(close_ts)                                                      as commence_ts,
+        logical_or(team_name = split(market_title, ' @ ')[safe_offset(1)]) as is_home,
+        avg(volume)                                                        as n_books
+    from `ba882-team8-fall26`.`staging`.`int_team_prices`
+    where venue = 'oddsapi'
+    group by 1, 2, 3, 4
+),
+pregame as (
+    select g.*, m.commence_ts, m.is_home, m.n_books
+    from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap` g
+    join game_meta m
+      on m.league = g.league and m.game_date = g.game_date
+     and m.matchup_code = g.matchup_code and m.team_code = g.team_code
+    -- whole snapshot hour must end before tip-off: no in-game prices
+    where timestamp_add(g.snapshot_hour, interval 1 hour) <= m.commence_ts
+)
+select
+    p.league, p.game_date, p.matchup_code, p.team_code, p.snapshot_hour,
+    p.commence_ts,
+    p.is_home,
+    timestamp_diff(p.commence_ts, p.snapshot_hour, minute) / 60.0           as hours_to_start,
+    extract(dayofweek from p.commence_ts at time zone 'America/New_York')   as start_dow,
+    p.book_mid, p.poly_mid, p.gap, p.abs_gap,
+    p.book_spread                                                           as book_range,
+    p.poly_spread,
+    p.abs_gap > p.poly_spread / 2                                           as outside_spread,
+    p.n_books,
+    p.book_mid - lag(p.book_mid) over w                                     as book_move,
+    p.poly_mid - lag(p.poly_mid) over w                                     as poly_move,
+    row_number() over (partition by p.league, p.game_date, p.matchup_code, p.team_code
+                       order by p.snapshot_hour desc) = 1                   as is_last_pregame,
+    r.winner_code,
+    case when r.winner_code is null then null
+         when r.winner_code = p.team_code then 1 else 0 end                 as team_won
+from pregame p
+left join `ba882-team8-fall26`.`mart`.`fct_game_result` r
+  on r.league = p.league and r.game_date = p.game_date and r.matchup_code = p.matchup_code
+window w as (partition by p.league, p.game_date, p.matchup_code, p.team_code
+             order by p.snapshot_hour)
+    );
+  
+13:42:37.620709 [debug]: drop(query_span_guard) (span exit/export) took 119.766µs
+13:42:37.623567 [info ]: Finished running [  5.76s] model ai_datasets.ml_features [success]
+13:42:37.623720 [info ]:  Succeeded [  5.80s] model ai_datasets.ml_features (table)
+13:42:37.623871 [info ]: Started test dbt_test__audit.not_null_ml_features_is_home
+13:42:37.623906 [debug]: Started rendering test dbt_test__audit.not_null_ml_features_is_home
+13:42:37.623952 [info ]: Started model ai_datasets.ml_training_set
+13:42:37.623983 [debug]: Started rendering model ai_datasets.ml_training_set
+13:42:37.624021 [info ]: Started test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:37.624051 [debug]: Started rendering test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:37.624085 [info ]: Started test dbt_test__audit.not_null_ml_features_commence_ts
+13:42:37.624101 [debug]: Started rendering test dbt_test__audit.not_null_ml_features_commence_ts
+13:42:37.624128 [info ]: Started test dbt_test__audit.assert_ml_features_pregame
+13:42:37.624139 [debug]: Started rendering test dbt_test__audit.assert_ml_features_pregame
+13:42:37.624166 [info ]: Started test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:42:37.624181 [debug]: Started rendering test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:42:37.625172 [debug]: Compiled SQL for node model.team8_markets.ml_training_set at target/compiled/team8_markets/models/marts/ml_training_set.sql
+13:42:37.625419 [debug]: Finished rendering [  0.00s] model ai_datasets.ml_training_set [success]
+13:42:37.625590 [debug]: Started analyzing model ai_datasets.ml_training_set
+13:42:37.625734 [debug]: Compiled SQL for node test.team8_markets.not_null_ml_features_is_home.d903cf872a at target/compiled/team8_markets/target/generic_tests/not_null_ml_features_is_home.sql
+13:42:37.625899 [debug]: Compiled SQL for node test.team8_markets.assert_ml_features_pregame at target/compiled/team8_markets/tests/assert_ml_features_pregame.sql
+13:42:37.626088 [debug]: Compiled SQL for node test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7 at target/compiled/team8_markets/target/generic_tests/unique_ml_features_cef42b4adadd2a3049438f0843da88cd.sql
+13:42:37.626231 [debug]: Finished analyzing [  0.00s] model ai_datasets.ml_training_set [success]
+13:42:37.626339 [debug]: Finished rendering [  0.00s] test dbt_test__audit.not_null_ml_features_is_home [success]
+13:42:37.626408 [debug]: Started analyzing test dbt_test__audit.not_null_ml_features_is_home
+13:42:37.626462 [debug]: Finished rendering [  0.00s] test dbt_test__audit.assert_ml_features_pregame [success]
+13:42:37.626515 [debug]: Started analyzing test dbt_test__audit.assert_ml_features_pregame
+13:42:37.626559 [debug]: Finished rendering [  0.00s] test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:42:37.627225 [debug]: Compiled SQL for node test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d at target/compiled/team8_markets/target/generic_tests/not_null_ml_features_commence_ts.sql
+13:42:37.627226 [debug]: Compiled SQL for node test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a at target/compiled/team8_markets/target/generic_tests/accepted_values_ml_features_team_won__False__0__1.sql
+13:42:37.627599 [debug]: Started analyzing test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:37.627664 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.not_null_ml_features_is_home [success]
+13:42:37.627757 [info ]: Started running test dbt_test__audit.not_null_ml_features_is_home
+13:42:37.627807 [debug]: Finished rendering [  0.00s] test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1 [success]
+13:42:37.627865 [debug]: Started analyzing test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:42:37.627889 [debug]: Finished rendering [  0.00s] test dbt_test__audit.not_null_ml_features_commence_ts [success]
+13:42:37.627964 [debug]: Started analyzing test dbt_test__audit.not_null_ml_features_commence_ts
+13:42:37.627987 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.assert_ml_features_pregame [success]
+13:42:37.628023 [info ]: Started running test dbt_test__audit.assert_ml_features_pregame
+13:42:37.628169 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [success]
+13:42:37.628255 [info ]: Started running test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:37.628546 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.not_null_ml_features_commence_ts [success]
+13:42:37.630454 [info ]: Started running test dbt_test__audit.not_null_ml_features_commence_ts
+13:42:37.630535 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1 [success]
+13:42:37.630640 [debug]: Started connection limit wait
+13:42:37.630727 [info ]: Started running test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1
+13:42:37.630811 [debug]: Started connection limit wait
+13:42:37.630972 [debug]: Writing runtime sql for node "test.team8_markets.not_null_ml_features_is_home.d903cf872a"
+13:42:37.631775 [debug]: Writing runtime sql for node "test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7"
+13:42:37.632199 [debug]: Writing runtime sql for node "test.team8_markets.assert_ml_features_pregame"
+13:42:37.632532 [debug]: create_debug_span(...).entered() took 19.547µs
+13:42:37.633098 [debug]: create_debug_span(...).entered() took 28.957µs
+13:42:37.638170 [debug]: create_debug_span(...).entered() took 40.712µs
+13:42:38.868550 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.235305615s
+13:42:38.868599 [debug]: reader.schema() took 689ns
+13:42:38.931703 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.299008896s
+13:42:38.931754 [debug]: reader.schema() took 735ns
+13:42:39.064623 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.426347283s
+13:42:39.064686 [debug]: reader.schema() took 677ns
+13:42:39.239633 [debug]: batch-consume loop (for res in reader) took 371.002914ms
+13:42:39.242700 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.609555104s
+13:42:39.242757 [debug]: concat_batches + normalize_result_column_names took 10.115µs
+13:42:39.242781 [debug]: record_current_span_status_from_attrs took 7.251µs
+13:42:39.242803 [debug]: Query executed on node test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_.0bd9657fd7", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) as unique_field
+  from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code, '|', team_code, '|', cast(snapshot_hour as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:39.242857 [debug]: drop(query_span_guard) (span exit/export) took 61.029µs
+13:42:39.243383 [debug]: Finished connection limit wait [  1.61s]
+13:42:39.243412 [info ]: Finished running [  1.62s] test dbt_test__audit.unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_ [pass]
+13:42:39.243506 [info ]:     Passed [  1.62s] test  unique_ml_features_concat_league_cast_game_date_as_string_matchup_code_team_code_cast_snapshot_hour_as_string_
+13:42:39.246356 [debug]: Writing runtime sql for node "test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d"
+13:42:39.247473 [debug]: create_debug_span(...).entered() took 23.699µs
+13:42:39.545577 [debug]: batch-consume loop (for res in reader) took 613.793254ms
+13:42:39.547913 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.915332268s
+13:42:39.547962 [debug]: concat_batches + normalize_result_column_names took 10.291µs
+13:42:39.547978 [debug]: record_current_span_status_from_attrs took 7.534µs
+13:42:39.547992 [debug]: Query executed on node test.team8_markets.not_null_ml_features_is_home.d903cf872a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_ml_features_is_home.d903cf872a", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select is_home
+from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where is_home is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:39.548038 [debug]: drop(query_span_guard) (span exit/export) took 52.126µs
+13:42:39.548606 [debug]: Finished connection limit wait [  1.92s]
+13:42:39.548645 [info ]: Finished running [  1.92s] test dbt_test__audit.not_null_ml_features_is_home [pass]
+13:42:39.548822 [info ]:     Passed [  1.92s] test  not_null_ml_features_is_home
+13:42:39.551267 [debug]: Writing runtime sql for node "test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a"
+13:42:39.552401 [debug]: create_debug_span(...).entered() took 22.694µs
+13:42:39.668026 [debug]: batch-consume loop (for res in reader) took 603.307814ms
+13:42:39.670960 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.03273774s
+13:42:39.671050 [debug]: concat_batches + normalize_result_column_names took 22.764µs
+13:42:39.671075 [debug]: record_current_span_status_from_attrs took 6.409µs
+13:42:39.671100 [debug]: Query executed on node test.team8_markets.assert_ml_features_pregame:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.assert_ml_features_pregame", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- fails if any row was captured after tip-off (leakage)
+select * from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where snapshot_hour >= commence_ts
+  
+  
+      
+    ) dbt_internal_test
+13:42:39.671146 [debug]: drop(query_span_guard) (span exit/export) took 52.9µs
+13:42:39.671704 [info ]: Finished running [  2.04s] test dbt_test__audit.assert_ml_features_pregame [pass]
+13:42:39.671795 [info ]:     Passed [  2.05s] test  assert_ml_features_pregame
+13:42:40.489346 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.241754894s
+13:42:40.489442 [debug]: reader.schema() took 799ns
+13:42:40.850807 [debug]: batch-consume loop (for res in reader) took 361.333583ms
+13:42:40.853368 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.605828929s
+13:42:40.853414 [debug]: concat_batches + normalize_result_column_names took 9.059µs
+13:42:40.853426 [debug]: record_current_span_status_from_attrs took 5.496µs
+13:42:40.853439 [debug]: Query executed on node test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_ml_features_commence_ts.f93e759b1d", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select commence_ts
+from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where commence_ts is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:40.853481 [debug]: drop(query_span_guard) (span exit/export) took 48.661µs
+13:42:40.854149 [info ]: Finished running [  1.61s] test dbt_test__audit.not_null_ml_features_commence_ts [pass]
+13:42:40.854242 [info ]:     Passed [  1.61s] test  not_null_ml_features_commence_ts
+13:42:41.020148 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.467588785s
+13:42:41.020197 [debug]: reader.schema() took 645ns
+13:42:41.386972 [debug]: batch-consume loop (for res in reader) took 366.722705ms
+13:42:41.389374 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.836926116s
+13:42:41.389425 [debug]: concat_batches + normalize_result_column_names took 9.664µs
+13:42:41.389443 [debug]: record_current_span_status_from_attrs took 7.181µs
+13:42:41.389457 [debug]: Query executed on node test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.accepted_values_ml_features_team_won__False__0__1.c660b8477a", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        team_won as value_field,
+        count(*) as n_records
+
+    from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+    group by team_won
+
+)
+
+select *
+from all_values
+where value_field not in (
+    0,1
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:41.389515 [debug]: drop(query_span_guard) (span exit/export) took 64.951µs
+13:42:41.390003 [info ]: Finished running [  1.84s] test dbt_test__audit.accepted_values_ml_features_team_won__False__0__1 [pass]
+13:42:41.390145 [info ]:     Passed [  1.85s] test  accepted_values_ml_features_team_won__False__0__1
+13:42:41.390290 [info ]: Started running model ai_datasets.ml_training_set
+13:42:41.621105 [debug]: Writing runtime sql for node "model.team8_markets.ml_training_set"
+13:42:41.621934 [debug]: create_debug_span(...).entered() took 21.05µs
+13:42:43.956076 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.334037316s
+13:42:43.956124 [debug]: reader.schema() took 776ns
+13:42:47.375682 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 15.108812312s
+13:42:47.375818 [debug]: concat_batches + normalize_result_column_names took 46.382µs
+13:42:47.375850 [debug]: record_current_span_status_from_attrs took 14.794µs
+13:42:47.375881 [debug]: Query executed on node model.team8_markets.rpt_game_gap:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.team8_markets.rpt_game_gap", "profile_name": "team8_markets", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `ba882-team8-fall26`.`mart`.`rpt_game_gap`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+-- one row per game per hour (first team in matchup_code), for the dashboard
+select
+    g.league, g.game_date, g.matchup_code, g.snapshot_hour,
+    g.team_code                 as team,
+    g.book_mid, g.poly_mid, g.gap, g.abs_gap,
+    g.book_spread               as book_disagreement,
+    g.poly_spread,
+    r.winner_code,
+    case when r.winner_code is null then null
+         when r.winner_code = g.team_code then 1 else 0 end as team_won
+from `ba882-team8-fall26`.`mart`.`fct_cross_venue_gap` g
+left join `ba882-team8-fall26`.`mart`.`fct_game_result` r using (league, game_date, matchup_code)
+where g.team_code = split(g.matchup_code, '-')[safe_offset(0)]
+    );
+  
+13:42:47.375974 [debug]: drop(query_span_guard) (span exit/export) took 109.366µs
+13:42:47.378095 [info ]: Finished running [ 15.51s] model mart.rpt_game_gap [success]
+13:42:47.378227 [info ]:  Succeeded [ 15.53s] model mart.rpt_game_gap (table)
+13:42:47.378397 [info ]: Started test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_
+13:42:47.378426 [debug]: Started rendering test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_
+13:42:47.379862 [debug]: Compiled SQL for node test.team8_markets.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_.58beaba6f6 at target/compiled/team8_markets/target/generic_tests/unique_rpt_game_gap_452023530841ad18138711dada116711.sql
+13:42:47.380053 [debug]: Finished rendering [  0.00s] test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_ [success]
+13:42:47.380165 [debug]: Started analyzing test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_
+13:42:47.380814 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_ [success]
+13:42:47.380917 [info ]: Started running test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_
+13:42:47.383138 [debug]: Writing runtime sql for node "test.team8_markets.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_.58beaba6f6"
+13:42:47.384149 [debug]: create_debug_span(...).entered() took 17.92µs
+13:42:48.669979 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.28568405s
+13:42:48.670033 [debug]: reader.schema() took 664ns
+13:42:48.949190 [debug]: batch-consume loop (for res in reader) took 279.125534ms
+13:42:48.951891 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.56769174s
+13:42:48.951947 [debug]: concat_batches + normalize_result_column_names took 10.943µs
+13:42:48.951964 [debug]: record_current_span_status_from_attrs took 7.325µs
+13:42:48.951988 [debug]: Query executed on node test.team8_markets.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_.58beaba6f6:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_.58beaba6f6", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code, '|', cast(snapshot_hour as string)) as unique_field
+  from `ba882-team8-fall26`.`mart`.`rpt_game_gap`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code, '|', cast(snapshot_hour as string)) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:48.952034 [debug]: drop(query_span_guard) (span exit/export) took 52.738µs
+13:42:48.952599 [info ]: Finished running [  1.57s] test dbt_test__audit.unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_ [pass]
+13:42:48.952745 [info ]:     Passed [  1.57s] test  unique_rpt_game_gap_concat_league_cast_game_date_as_string_matchup_code_cast_snapshot_hour_as_string_
+13:42:51.980496 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 10.358509329s
+13:42:51.980581 [debug]: concat_batches + normalize_result_column_names took 41.365µs
+13:42:51.980608 [debug]: record_current_span_status_from_attrs took 16.067µs
+13:42:51.980627 [debug]: Query executed on node model.team8_markets.ml_training_set:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.team8_markets.ml_training_set", "profile_name": "team8_markets", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+-- One row per finished game: home side, last pre-game snapshot. Label = home team won.
+select *
+from `ba882-team8-fall26`.`ai_datasets`.`ml_features`
+where is_last_pregame and is_home and team_won is not null
+    );
+  
+13:42:51.980720 [debug]: drop(query_span_guard) (span exit/export) took 98.057µs
+13:42:51.982933 [info ]: Finished running [ 10.59s] model ai_datasets.ml_training_set [success]
+13:42:51.983081 [info ]:  Succeeded [ 10.59s] model ai_datasets.ml_training_set (table)
+13:42:51.983237 [info ]: Started test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:42:51.983267 [debug]: Started rendering test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:42:51.983358 [info ]: Started test dbt_test__audit.not_null_ml_training_set_team_won
+13:42:51.983380 [debug]: Started rendering test dbt_test__audit.not_null_ml_training_set_team_won
+13:42:51.985038 [debug]: Compiled SQL for node test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a at target/compiled/team8_markets/target/generic_tests/unique_ml_training_set_bb8685bfdd0203c5657b080b12dbcdcf.sql
+13:42:51.985219 [debug]: Finished rendering [  0.00s] test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_ [success]
+13:42:51.985355 [debug]: Started analyzing test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:42:51.985863 [debug]: Compiled SQL for node test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f at target/compiled/team8_markets/target/generic_tests/not_null_ml_training_set_team_won.sql
+13:42:51.986032 [debug]: Finished rendering [  0.00s] test dbt_test__audit.not_null_ml_training_set_team_won [success]
+13:42:51.986099 [info ]: Finished rendering [ 27.13s] (15 nodes, 0 skipped, 0 errors)
+13:42:51.986280 [debug]: Started analyzing test dbt_test__audit.not_null_ml_training_set_team_won
+13:42:51.986606 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_ [success]
+13:42:51.986712 [info ]: Started running test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:42:51.986764 [debug]: Finished analyzing [  0.00s] test dbt_test__audit.not_null_ml_training_set_team_won [success]
+13:42:51.986808 [info ]: Finished analyzing [ 27.12s] (15 nodes, 0 skipped, 0 errors)
+13:42:51.986935 [info ]: Started running test dbt_test__audit.not_null_ml_training_set_team_won
+13:42:51.989160 [debug]: Writing runtime sql for node "test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a"
+13:42:51.989219 [debug]: Writing runtime sql for node "test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f"
+13:42:51.990186 [debug]: create_debug_span(...).entered() took 20.553µs
+13:42:51.990195 [debug]: create_debug_span(...).entered() took 28.371µs
+13:42:53.199366 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.20900308s
+13:42:53.199420 [debug]: reader.schema() took 723ns
+13:42:53.364722 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.374362218s
+13:42:53.364767 [debug]: reader.schema() took 680ns
+13:42:53.533116 [debug]: batch-consume loop (for res in reader) took 333.669255ms
+13:42:53.535900 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.545663315s
+13:42:53.535953 [debug]: concat_batches + normalize_result_column_names took 10.073µs
+13:42:53.535968 [debug]: record_current_span_status_from_attrs took 6.275µs
+13:42:53.535992 [debug]: Query executed on node test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_.400d86ea9a", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select concat(league, '|', cast(game_date as string), '|', matchup_code) as unique_field
+  from `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+  where concat(league, '|', cast(game_date as string), '|', matchup_code) is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:53.536042 [debug]: drop(query_span_guard) (span exit/export) took 65.499µs
+13:42:53.536646 [info ]: Finished running [  1.55s] test dbt_test__audit.unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_ [pass]
+13:42:53.536822 [info ]:     Passed [  1.55s] test  unique_ml_training_set_concat_league_cast_game_date_as_string_matchup_code_
+13:42:53.583549 [debug]: batch-consume loop (for res in reader) took 218.754294ms
+13:42:53.586147 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.595911426s
+13:42:53.586210 [debug]: concat_batches + normalize_result_column_names took 11.011µs
+13:42:53.586226 [debug]: record_current_span_status_from_attrs took 7.373µs
+13:42:53.586254 [debug]: Query executed on node test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.team8_markets.not_null_ml_training_set_team_won.0f8fb1149f", "profile_name": "team8_markets", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select team_won
+from `ba882-team8-fall26`.`ai_datasets`.`ml_training_set`
+where team_won is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+13:42:53.586317 [debug]: drop(query_span_guard) (span exit/export) took 70.052µs
+13:42:53.586890 [info ]: Finished running [  1.60s] test dbt_test__audit.not_null_ml_training_set_team_won [pass]
+13:42:53.587004 [info ]: Finished running [ 28.69s] (15 nodes, 0 skipped, 0 errors)
+13:42:53.587071 [info ]:     Passed [  1.60s] test  not_null_ml_training_set_team_won
+13:42:53.792400 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [31.3s]
+Processed: 4 models | 11 tests
+Summary: 15 total | 15 success

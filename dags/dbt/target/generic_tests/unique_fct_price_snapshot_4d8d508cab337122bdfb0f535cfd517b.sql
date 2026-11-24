@@ -1,0 +1,1 @@
+{{ test_unique(column_name="concat(venue, '|', market_id, '|', team_code, '|', cast(snapshot_ts as string))", model=get_where_subquery(ref('fct_price_snapshot'))) }}

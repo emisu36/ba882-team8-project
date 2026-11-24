@@ -1,0 +1,1 @@
+{{ test_accepted_values(column_name="team_won", model=get_where_subquery(ref('ml_features')), quote=false, values=[0,1]) }}

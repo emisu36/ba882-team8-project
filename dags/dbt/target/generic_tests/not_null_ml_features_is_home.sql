@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="is_home", model=get_where_subquery(ref('ml_features'))) }}

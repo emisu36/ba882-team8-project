@@ -1,0 +1,1 @@
+{{ test_unique(column_name="concat(league, '|', cast(game_date as string), '|', matchup_code)", model=get_where_subquery(ref('fct_game_result'))) }}

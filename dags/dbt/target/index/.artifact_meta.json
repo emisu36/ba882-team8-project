@@ -1,0 +1,20 @@
+{
+  "target_dir": "/home/emilys6/ba882-team8-project/dags/dbt/target",
+  "fingerprints": {
+    "manifest.json": {
+      "size": 660647,
+      "modified_secs": 1795527773
+    },
+    "run_results.json": {
+      "size": 19805,
+      "modified_secs": 1795527773
+    },
+    "semantic_manifest.json": {
+      "size": 234,
+      "modified_secs": 1795527742
+    }
+  },
+  "write_source": "DirectWrite",
+  "context_dir": null,
+  "context_fingerprints": {}
+}
